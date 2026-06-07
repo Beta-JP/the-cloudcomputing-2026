@@ -34,9 +34,6 @@ Wichtig: Der Schlüssel (Key) ist das, was in der Anwendung als `AZURE_SPEECH_KE
 
 Die Anwendung erwartet folgende Umgebungsvariablen (Standardwerte sind im Code angegeben):
 
-- `API_URL` — URL des Backend-API (Standard: `http://127.0.0.1:8000`)
-- `AZURE_SPEECH_KEY` — Azure Speech API Key
-- `AZURE_SPEECH_REGION` — Region des Speech-Services (z. B. `swedencentral`)
 
 Beispiele zum Setzen unter macOS (zsh):
 
@@ -45,6 +42,25 @@ export API_URL="http://127.0.0.1:8000"
 export AZURE_SPEECH_KEY="<dein_speech_key>"
 export AZURE_SPEECH_REGION="swedencentral"
 ```
+
+Schnellstart mit Azure CLI
+
+Wenn du die Azure CLI installiert und angemeldet (`az login`) hast, kannst du den Speech-Key automatisch auslesen und die Umgebungsvariablen setzen (passe Ressourcennamen und Resource-Group an):
+
+```bash
+export AZURE_SPEECH_KEY=$(az cognitiveservices account keys list \
+	--name speech-registration-bot \
+	--resource-group rg-registration-bot \
+	--query "key1" -o tsv)
+
+export AZURE_SPEECH_REGION="swedencentral"
+export API_URL="https://registration-bot-app.azurewebsites.net"
+
+streamlit run dashboard.py
+```
+
+Hinweis: Ersetze `speech-registration-bot` und `rg-registration-bot` durch deine tatsächlichen Azure-Ressourcennamen.
+
 
 Alternativ kannst du die Variablen in einer Datei `.env` speichern und mit `direnv` oder einem kleinen Loader in die Umgebung laden. Beispiel `.env`:
 
