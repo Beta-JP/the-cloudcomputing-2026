@@ -1,38 +1,38 @@
 import json
-from openai import AzureOpenAI
+import os
+from azure.ai.projects import AIProjectClient
+from azure.identity import DefaultAzureCredential
 
-ENDPOINT = "https://swedencentral.api.cognitive.microsoft.com/"
-DEPLOYMENT = "gpt-4o"
-
-SYSTEM_PROMPT = """Du bist ein Registrierungsassistent.
-
-Extrahiere aus der Konversation folgende Felder:
-- first_name, last_name, birthdate (YYYY-MM-DD)
-- email, phone
-- street, house_number, zip_code, city, country
-
-Fehlende Felder fragst du gezielt nach.
-Wenn alle Felder vorhanden sind, antworte NUR mit:
-{"status": "complete", "data": {...}}
-
-Solange Felder fehlen:
-{"status": "incomplete", "message": "...", "collected": {...}}
-"""
+AGENT_ID = "asst_qdIRZcfPLboe5uT9E2HP8xkq"
 
 def chat_with_agent(messages: list) -> dict:
-    from app.config import get_ai_key
-    client = AzureOpenAI(
-        api_key=get_ai_key(),
-        azure_endpoint=ENDPOINT,
-        api_version="2024-02-15-preview"
+    conn_str = os.getenv("AZURE_AI_PROJECT_CONNECTION_STRING") or \
+               __import__('app.config', fromlist=['get_secret']).get_secret("AiProjectConnectionString")
+    
+    client = AIProjectClient.from_connection_string(
+        credential=DefaultAzureCredential(),
+        conn_str=conn_str
     )
-    response = client.chat.completions.create(
-        model=DEPLOYMENT,
-        messages=[{"role": "system", "content": SYSTEM_PROMPT}] + messages,
-        temperature=0.3
+    
+    thread = client.agents.create_thread()
+    
+    for msg in messages:
+        if msg["role"] == "user":
+            client.agents.create_message(
+                thread_id=thread.id,
+                role="user",
+                content=msg["content"]
+            )
+    
+    run = client.agents.create_and_process_run(
+        thread_id=thread.id,
+        agent_id=AGENT_ID
     )
-    content = response.choices[0].message.content
+    
+    response_messages = client.agents.list_messages(thread_id=thread.id)
+    last = response_messages.data[0].content[0].text.value
+    
     try:
-        return json.loads(content)
+        return json.loads(last)
     except json.JSONDecodeError:
-        return {"status": "incomplete", "message": content, "collected": {}}
+        return {"status": "incomplete", "message": last, "collected": {}}
