@@ -1,4 +1,7 @@
 venv/
+antenv/
 __pycache__/
 *.pyc
 .env
+logs/
+logs.zip

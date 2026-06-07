@@ -1,5 +1,0 @@
-<step title="Incoming Request" date="2026-06-07T17:00:25.388" instance="f8c5d3" url="/logstream" method="GET" type="request" pid="831,1,22" Host="registration-bot-app.scm.azurewebsites.net" User-Agent="AZURECLI/2.87.0 (HOMEBREW)" Accept-Encoding="identity" Authorization="Bea..." x-ms-client-request-id="4d962e38-6292-11f1-877d-4610aded27a8" X-ARR-LOG-ID="4d962e38-6292-11f1-877d-4610aded27a8" CLIENT-IP="92.211.1.172:4563" X-SITE-DEPLOYMENT-ID="registration-bot-app" WAS-DEFAULT-HOSTNAME="registration-bot-app.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/logstream" X-Client-IP="92.211.1.172" X-Client-Port="4563" >
-  <step title="LogStreamHandlerMiddleware.Invoke" date="2026-06-07T17:00:25.408" /><!-- duration: 132ms -->
-  <step title="Error occurred" date="2026-06-07T17:03:25.543" type="error" text="LogStreamManager: ProcessRequest end" /><!-- duration: 2ms -->
-  <step title="Outgoing response" date="2026-06-07T17:03:25.549" type="response" statusCode="200" statusText="OK" /><!-- duration: 1ms -->
-</step><!-- duration: 180164ms -->
