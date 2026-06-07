@@ -100,14 +100,15 @@ with tab_chat:
 
     col1, col2 = st.columns([1, 8])
     with col1:
-        if st.button("🎤"):
+        if st.button("Aufnehmen"):
             with st.spinner("Höre zu..."):
                 recognized = speech_to_text()
                 if recognized:
                     st.session_state["speech_input"] = recognized
                     st.rerun()
 
-    user_input = st.chat_input("Schreibe oder spreche deine Antwort ...")
+    with col2:
+        user_input = st.chat_input("Schreibe oder spreche deine Antwort ...")
 
     if "speech_input" in st.session_state and st.session_state["speech_input"]:
         user_input = st.session_state.pop("speech_input")

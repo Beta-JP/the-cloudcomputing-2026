@@ -65,6 +65,16 @@ def chat(request: ChatRequest):
             session.close()
             return {"status": "error", "message": str(e)}
 
+    if result.get("status") == "pending_confirmation":
+        return {
+            "status": "pending_confirmation",
+            "message": result.get(
+                "message",
+                "Ich habe alle Angaben erfasst. Bitte prüfe die Zusammenfassung und bestätige, ob alles korrekt ist.",
+            ),
+            "data": result.get("data", {}),
+        }
+
     return result
 
 @app.get("/users")
