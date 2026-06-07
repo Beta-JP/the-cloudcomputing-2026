@@ -1,7 +1,7 @@
 import json
 from openai import AzureOpenAI
 
-ENDPOINT = "https://ai-registration-bot.cognitiveservices.azure.com/"
+ENDPOINT = "https://swedencentral.api.cognitive.microsoft.com/"
 DEPLOYMENT = "gpt-4o"
 
 SYSTEM_PROMPT = """Du bist ein Registrierungsassistent.
@@ -24,7 +24,7 @@ def chat_with_agent(messages: list) -> dict:
     client = AzureOpenAI(
         api_key=get_ai_key(),
         azure_endpoint=ENDPOINT,
-        api_version="2024-02-01"
+        api_version="2024-02-15-preview"
     )
     response = client.chat.completions.create(
         model=DEPLOYMENT,
