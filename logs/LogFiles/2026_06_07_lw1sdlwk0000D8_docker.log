@@ -1,0 +1,647 @@
+2026-06-07T16:51:36.3528818Z State: Starting, Action: EstablishingSiteNetworks, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-06-07T16:51:38.6712232Z State: Starting, Action: StartingMsiContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-06-07T16:51:47.5167497Z State: Starting, Action: StartingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-06-07T16:51:47.5168248Z Container start method called.
+2026-06-07T16:51:47.5168523Z State: Starting, Action: PullingImage, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pulling image 10.1.0.4:13209/appsvc/python:3.12_20260504.4.tuxprod for registration-bot-app., DetailsLevel: INFO
+2026-06-07T16:51:47.5169085Z Establishing network.
+2026-06-07T16:51:47.5169666Z Pulling image: appsvc/python:3.12_20260504.4.tuxprod.
+2026-06-07T16:51:47.7606879Z Image appsvc/python:3.12_20260504.4.tuxprod is pulled from registry 10.1.0.4:13209
+2026-06-07T16:51:47.7609816Z Container is starting.
+2026-06-07T16:51:47.7612505Z State: Starting, Action: MountingVolumes, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Mounting volumes for registration-bot-app., DetailsLevel: INFO
+2026-06-07T16:51:47.7613592Z Establishing user namespace if not established already.
+2026-06-07T16:51:47.7618083Z Establishing network if not established already.
+2026-06-07T16:51:47.7619112Z Mounting volumes.
+2026-06-07T16:51:47.7694304Z Nested mountpoint 
+2026-06-07T16:51:47.7903292Z Nested mountpoint volatile/logs
+2026-06-07T16:51:47.8014212Z Nested mountpoint 
+2026-06-07T16:51:47.8617340Z Nested mountpoint 
+2026-06-07T16:51:47.8797529Z Nested mountpoint 
+2026-06-07T16:51:48.1802569Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Finished pulling container image and mounting volumes for registration-bot-app. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-06-07T16:51:48.1806072Z Creating container.
+2026-06-07T16:51:48.1810946Z Creating pipes for streaming container io.
+2026-06-07T16:51:48.1811905Z Creating stdout named pipe at /podr/container/pipe/6a55a2157296_registration-bot-app/stdout_b95546abe06e4f46923e2227568755f4.
+2026-06-07T16:51:48.1816558Z Successfully created stdout named pipe at: /podr/container/pipe/6a55a2157296_registration-bot-app/stdout_b95546abe06e4f46923e2227568755f4.
+2026-06-07T16:51:48.1818907Z Opening named pipe /podr/container/pipe/6a55a2157296_registration-bot-app/stdout_b95546abe06e4f46923e2227568755f4 for reading in non-blocking mode.
+2026-06-07T16:51:48.1821777Z Successfully opened named pipe: /podr/container/pipe/6a55a2157296_registration-bot-app/stdout_b95546abe06e4f46923e2227568755f4.
+2026-06-07T16:51:48.1892249Z Successfully removed non-blocking flag from /podr/container/pipe/6a55a2157296_registration-bot-app/stdout_b95546abe06e4f46923e2227568755f4.
+2026-06-07T16:51:48.1900688Z Creating stderr named pipe at /podr/container/pipe/6a55a2157296_registration-bot-app/stderr_5ddee3b529324ef88a9f317baa4e0101.
+2026-06-07T16:51:48.1905781Z Successfully created stderr named pipe at: /podr/container/pipe/6a55a2157296_registration-bot-app/stderr_5ddee3b529324ef88a9f317baa4e0101.
+2026-06-07T16:51:48.1907080Z Opening named pipe /podr/container/pipe/6a55a2157296_registration-bot-app/stderr_5ddee3b529324ef88a9f317baa4e0101 for reading in non-blocking mode.
+2026-06-07T16:51:48.1909719Z Successfully opened named pipe: /podr/container/pipe/6a55a2157296_registration-bot-app/stderr_5ddee3b529324ef88a9f317baa4e0101.
+2026-06-07T16:51:48.1911217Z Successfully removed non-blocking flag from /podr/container/pipe/6a55a2157296_registration-bot-app/stderr_5ddee3b529324ef88a9f317baa4e0101.
+2026-06-07T16:51:48.1918183Z Creating container with image: appsvc/python:3.12_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/python:3.12_20260504.4.tuxprod
+2026-06-07T16:51:48.8658008Z Starting container: 6a55a2157296_registration-bot-app.
+2026-06-07T16:51:48.9164863Z Starting watchers and probes.
+2026-06-07T16:51:48.9169244Z Starting metrics collection.
+2026-06-07T16:51:48.9176187Z Container is running.
+2026-06-07T16:51:48.9253111Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T16:51:49.0247734Z Container start method finished after 1498 ms.
+2026-06-07T16:51:49.0249564Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T16:51:49.0249940Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-06-07T16:52:08.1321198Z Site startup probe succeeded after 19.1063413 seconds.
+2026-06-07T16:52:08.3426811Z State: Starting, Action: WarmUpProbeSucceeded, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site startup probe succeeded after 19.1063413 seconds., DetailsLevel: INFO
+2026-06-07T16:52:08.7319795Z Site is running with deployment version: a7da104d-ae57-4a6d-b7fe-4663292740b7
+2026-06-07T16:52:08.7326512Z Site started.
+2026-06-07T16:52:08.7408000Z State: Started, Action: None, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site started at 06/07/2026 16:52:08 (UTC), DetailsLevel: INFO
+2026-06-07T16:52:08.7611018Z Site is running with patch version PYTHON 3.12.13
+2026-06-07T16:53:55.1619969Z State: Starting, Action: EstablishingSiteNetworks, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-06-07T16:53:57.8305648Z State: Starting, Action: StartingMsiContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-06-07T16:54:12.1033231Z State: Starting, Action: StartingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-06-07T16:54:12.1035332Z Container start method called.
+2026-06-07T16:54:12.1036115Z State: Starting, Action: PullingImage, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pulling image 10.1.0.4:13209/appsvc/python:3.12_20260504.4.tuxprod for registration-bot-app., DetailsLevel: INFO
+2026-06-07T16:54:12.1316481Z Establishing network.
+2026-06-07T16:54:12.1317839Z Pulling image: appsvc/python:3.12_20260504.4.tuxprod.
+2026-06-07T16:54:12.5509491Z Container is starting.
+2026-06-07T16:54:12.5510330Z State: Starting, Action: MountingVolumes, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Mounting volumes for registration-bot-app., DetailsLevel: INFO
+2026-06-07T16:54:12.5513133Z Establishing user namespace if not established already.
+2026-06-07T16:54:12.5514010Z Establishing network if not established already.
+2026-06-07T16:54:12.5514858Z Mounting volumes.
+2026-06-07T16:54:12.5516243Z Nested mountpoint 
+2026-06-07T16:54:12.5822754Z Nested mountpoint volatile/logs
+2026-06-07T16:54:12.6227387Z Nested mountpoint 
+2026-06-07T16:54:12.6311174Z Nested mountpoint 
+2026-06-07T16:54:12.6522467Z Nested mountpoint 
+2026-06-07T16:54:13.1321884Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Finished pulling container image and mounting volumes for registration-bot-app. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-06-07T16:54:13.1322772Z Creating container.
+2026-06-07T16:54:13.1323508Z Creating pipes for streaming container io.
+2026-06-07T16:54:13.1324215Z Creating stdout named pipe at /podr/container/pipe/ed7671b27d65_registration-bot-app/stdout_dc938057c937438197b9b571e73580fd.
+2026-06-07T16:54:13.1328009Z Successfully created stdout named pipe at: /podr/container/pipe/ed7671b27d65_registration-bot-app/stdout_dc938057c937438197b9b571e73580fd.
+2026-06-07T16:54:13.1328777Z Opening named pipe /podr/container/pipe/ed7671b27d65_registration-bot-app/stdout_dc938057c937438197b9b571e73580fd for reading in non-blocking mode.
+2026-06-07T16:54:13.1329600Z Successfully opened named pipe: /podr/container/pipe/ed7671b27d65_registration-bot-app/stdout_dc938057c937438197b9b571e73580fd.
+2026-06-07T16:54:13.1330270Z Successfully removed non-blocking flag from /podr/container/pipe/ed7671b27d65_registration-bot-app/stdout_dc938057c937438197b9b571e73580fd.
+2026-06-07T16:54:13.1429517Z Creating stderr named pipe at /podr/container/pipe/ed7671b27d65_registration-bot-app/stderr_ced46cd9b0b2483084db8d8564fe4e50.
+2026-06-07T16:54:13.1434605Z Successfully created stderr named pipe at: /podr/container/pipe/ed7671b27d65_registration-bot-app/stderr_ced46cd9b0b2483084db8d8564fe4e50.
+2026-06-07T16:54:13.1435196Z Opening named pipe /podr/container/pipe/ed7671b27d65_registration-bot-app/stderr_ced46cd9b0b2483084db8d8564fe4e50 for reading in non-blocking mode.
+2026-06-07T16:54:13.1435845Z Successfully opened named pipe: /podr/container/pipe/ed7671b27d65_registration-bot-app/stderr_ced46cd9b0b2483084db8d8564fe4e50.
+2026-06-07T16:54:13.1436339Z Successfully removed non-blocking flag from /podr/container/pipe/ed7671b27d65_registration-bot-app/stderr_ced46cd9b0b2483084db8d8564fe4e50.
+2026-06-07T16:54:13.1708480Z Creating container with image: appsvc/python:3.12_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/python:3.12_20260504.4.tuxprod
+2026-06-07T16:54:14.2539394Z Starting container: ed7671b27d65_registration-bot-app.
+2026-06-07T16:54:14.4034678Z Starting watchers and probes.
+2026-06-07T16:54:14.4040433Z Starting metrics collection.
+2026-06-07T16:54:14.4138912Z Container is running.
+2026-06-07T16:54:14.4140581Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T16:54:14.5529065Z Container start method finished after 2448 ms.
+2026-06-07T16:54:14.5533133Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T16:54:14.5533516Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-06-07T16:54:26.4488363Z Site startup probe failed after 11.8868977 seconds.
+2026-06-07T16:54:27.8188313Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
+2026-06-07T16:54:27.8590609Z Failed to start site. Revert by stopping site.
+2026-06-07T16:54:27.9985081Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
+2026-06-07T16:54:28.0295640Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
+2026-06-07T16:54:28.0367732Z Container is terminating. Grace period: 5 seconds.
+2026-06-07T16:54:28.0588624Z Stop and delete container. Retry count = 0
+2026-06-07T16:54:28.0591316Z Stopping container: ed7671b27d65_registration-bot-app.
+2026-06-07T16:54:33.4054836Z Deleting container: ed7671b27d65_registration-bot-app. Retry count = 0
+2026-06-07T16:54:33.7865088Z Container spec TerminationMessagePolicy  path 
+2026-06-07T16:54:33.7869714Z Container is terminated. Total time elapsed: 5749 ms.
+2026-06-07T16:54:33.7874215Z Site container: registration-bot-app terminated during site startup.
+2026-06-07T16:54:33.7965823Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:54:34.1356800Z Site container: registration-bot-app_managedIdentity terminated during site startup.
+2026-06-07T16:54:34.1365483Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:54:34.1372980Z Site: registration-bot-app stopped.
+2026-06-07T16:54:55.2084214Z State: Stopping, Action: StoppingSite, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site started at 06/07/2026 16:52:08 (UTC), DetailsLevel: INFO
+2026-06-07T16:54:55.2097016Z State: Stopping, Action: StoppingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site started at 06/07/2026 16:52:08 (UTC), DetailsLevel: INFO
+2026-06-07T16:54:55.2178051Z Container is terminating. Grace period: 5 seconds.
+2026-06-07T16:54:55.2205266Z Stop and delete container. Retry count = 0
+2026-06-07T16:54:55.2205875Z Stopping container: 6a55a2157296_registration-bot-app.
+2026-06-07T16:55:00.3291721Z Deleting container: 6a55a2157296_registration-bot-app. Retry count = 0
+2026-06-07T16:55:00.7203384Z Container spec TerminationMessagePolicy  path 
+2026-06-07T16:55:00.7206480Z Container is terminated. Total time elapsed: 5502 ms.
+2026-06-07T16:55:01.4009551Z Site: registration-bot-app stopped.
+2026-06-07T16:55:28.4797670Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:54:34 (UTC), DetailsLevel: ERR
+2026-06-07T16:55:31.0011227Z State: Starting, Action: StartingMsiContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:54:34 (UTC), DetailsLevel: ERR
+2026-06-07T16:55:39.3077207Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:54:34 (UTC), DetailsLevel: ERR
+2026-06-07T16:55:39.3077943Z Container start method called.
+2026-06-07T16:55:39.3078298Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/python:3.12_20260504.4.tuxprod for registration-bot-app., DetailsLevel: INFO
+2026-06-07T16:55:39.3078826Z Establishing network.
+2026-06-07T16:55:39.3079552Z Pulling image: appsvc/python:3.12_20260504.4.tuxprod.
+2026-06-07T16:55:39.5676858Z Container is starting.
+2026-06-07T16:55:39.5683975Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for registration-bot-app., DetailsLevel: INFO
+2026-06-07T16:55:39.5685245Z Establishing user namespace if not established already.
+2026-06-07T16:55:39.5686045Z Establishing network if not established already.
+2026-06-07T16:55:39.5774425Z Mounting volumes.
+2026-06-07T16:55:39.5781475Z Nested mountpoint 
+2026-06-07T16:55:39.6168932Z Nested mountpoint volatile/logs
+2026-06-07T16:55:39.6361221Z Nested mountpoint 
+2026-06-07T16:55:39.6365703Z Nested mountpoint 
+2026-06-07T16:55:39.6561075Z Nested mountpoint 
+2026-06-07T16:55:39.9360849Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for registration-bot-app. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-06-07T16:55:39.9362126Z Creating container.
+2026-06-07T16:55:39.9363151Z Creating pipes for streaming container io.
+2026-06-07T16:55:39.9363930Z Creating stdout named pipe at /podr/container/pipe/061149e05ecc_registration-bot-app/stdout_4c14f6131baf41bb9b4d122ac93ec4cc.
+2026-06-07T16:55:39.9365915Z Successfully created stdout named pipe at: /podr/container/pipe/061149e05ecc_registration-bot-app/stdout_4c14f6131baf41bb9b4d122ac93ec4cc.
+2026-06-07T16:55:39.9366652Z Opening named pipe /podr/container/pipe/061149e05ecc_registration-bot-app/stdout_4c14f6131baf41bb9b4d122ac93ec4cc for reading in non-blocking mode.
+2026-06-07T16:55:39.9367462Z Successfully opened named pipe: /podr/container/pipe/061149e05ecc_registration-bot-app/stdout_4c14f6131baf41bb9b4d122ac93ec4cc.
+2026-06-07T16:55:39.9370288Z Successfully removed non-blocking flag from /podr/container/pipe/061149e05ecc_registration-bot-app/stdout_4c14f6131baf41bb9b4d122ac93ec4cc.
+2026-06-07T16:55:39.9382580Z Creating stderr named pipe at /podr/container/pipe/061149e05ecc_registration-bot-app/stderr_e016fceb0e5a4574bc20de3968244002.
+2026-06-07T16:55:39.9385049Z Successfully created stderr named pipe at: /podr/container/pipe/061149e05ecc_registration-bot-app/stderr_e016fceb0e5a4574bc20de3968244002.
+2026-06-07T16:55:39.9385811Z Opening named pipe /podr/container/pipe/061149e05ecc_registration-bot-app/stderr_e016fceb0e5a4574bc20de3968244002 for reading in non-blocking mode.
+2026-06-07T16:55:39.9387113Z Successfully opened named pipe: /podr/container/pipe/061149e05ecc_registration-bot-app/stderr_e016fceb0e5a4574bc20de3968244002.
+2026-06-07T16:55:39.9483300Z Successfully removed non-blocking flag from /podr/container/pipe/061149e05ecc_registration-bot-app/stderr_e016fceb0e5a4574bc20de3968244002.
+2026-06-07T16:55:39.9486995Z Creating container with image: appsvc/python:3.12_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/python:3.12_20260504.4.tuxprod
+2026-06-07T16:55:40.6942418Z Starting container: 061149e05ecc_registration-bot-app.
+2026-06-07T16:55:40.7393133Z Starting watchers and probes.
+2026-06-07T16:55:40.7404031Z Starting metrics collection.
+2026-06-07T16:55:40.7479466Z Container is running.
+2026-06-07T16:55:40.7480149Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T16:55:40.8807618Z Container start method finished after 1572 ms.
+2026-06-07T16:55:40.8883611Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T16:55:40.8885378Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-06-07T16:55:54.6912519Z Container has finished running with exit code: 127.
+2026-06-07T16:55:54.6916265Z Container is terminating. Grace period: 5 seconds.
+2026-06-07T16:55:54.7907658Z Stop and delete container. Retry count = 0
+2026-06-07T16:55:54.7912721Z Stopping container: 061149e05ecc_registration-bot-app.
+2026-06-07T16:55:54.8437406Z Deleting container: 061149e05ecc_registration-bot-app. Retry count = 0
+2026-06-07T16:55:55.0463451Z Container spec TerminationMessagePolicy  path 
+2026-06-07T16:55:55.0536396Z Container is terminated. Total time elapsed: 354 ms.
+2026-06-07T16:55:55.0537337Z Site container: registration-bot-app terminated during site startup.
+2026-06-07T16:55:55.0539392Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:54:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:55:55.0661622Z Site startup probe failed after 14.1773011 seconds.
+2026-06-07T16:55:55.1650037Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:55:55.2040464Z Failed to start site. Revert by stopping site.
+2026-06-07T16:55:55.2044297Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:55:55.2052357Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:55:55.4767272Z Site container: registration-bot-app_managedIdentity terminated during site startup.
+2026-06-07T16:55:55.4772270Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:55:55.4846702Z Site: registration-bot-app stopped.
+2026-06-07T16:55:55.4864421Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:55:55.7459889Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:55:55.9048630Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:55:55 (UTC), DetailsLevel: ERR
+2026-06-07T16:55:56.3382544Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:55:55 (UTC), DetailsLevel: ERR
+2026-06-07T16:57:35.1575009Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:55:55 (UTC), DetailsLevel: ERR
+2026-06-07T16:57:36.3082679Z State: Starting, Action: StartingMsiContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:55:55 (UTC), DetailsLevel: ERR
+2026-06-07T16:57:43.0663654Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:55:55 (UTC), DetailsLevel: ERR
+2026-06-07T16:57:43.0668584Z Container start method called.
+2026-06-07T16:57:43.0669473Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/python:3.12_20260504.4.tuxprod for registration-bot-app., DetailsLevel: INFO
+2026-06-07T16:57:43.0671961Z Establishing network.
+2026-06-07T16:57:43.0675906Z Pulling image: appsvc/python:3.12_20260504.4.tuxprod.
+2026-06-07T16:57:43.2700751Z Container is starting.
+2026-06-07T16:57:43.2701624Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for registration-bot-app., DetailsLevel: INFO
+2026-06-07T16:57:43.2702375Z Establishing user namespace if not established already.
+2026-06-07T16:57:43.2703178Z Establishing network if not established already.
+2026-06-07T16:57:43.2705656Z Mounting volumes.
+2026-06-07T16:57:43.2789508Z Nested mountpoint 
+2026-06-07T16:57:43.2897411Z Nested mountpoint volatile/logs
+2026-06-07T16:57:43.2999433Z Nested mountpoint 
+2026-06-07T16:57:43.3008951Z Nested mountpoint 
+2026-06-07T16:57:43.3113069Z Nested mountpoint 
+2026-06-07T16:57:43.5898949Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for registration-bot-app. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-06-07T16:57:43.5899655Z Creating container.
+2026-06-07T16:57:43.5900166Z Creating pipes for streaming container io.
+2026-06-07T16:57:43.5900641Z Creating stdout named pipe at /podr/container/pipe/6710b5f0b8d0_registration-bot-app/stdout_4fc0afbf7715426b9d3adcf42a76c3af.
+2026-06-07T16:57:43.5901723Z Successfully created stdout named pipe at: /podr/container/pipe/6710b5f0b8d0_registration-bot-app/stdout_4fc0afbf7715426b9d3adcf42a76c3af.
+2026-06-07T16:57:43.5902230Z Opening named pipe /podr/container/pipe/6710b5f0b8d0_registration-bot-app/stdout_4fc0afbf7715426b9d3adcf42a76c3af for reading in non-blocking mode.
+2026-06-07T16:57:43.5902797Z Successfully opened named pipe: /podr/container/pipe/6710b5f0b8d0_registration-bot-app/stdout_4fc0afbf7715426b9d3adcf42a76c3af.
+2026-06-07T16:57:43.5903286Z Successfully removed non-blocking flag from /podr/container/pipe/6710b5f0b8d0_registration-bot-app/stdout_4fc0afbf7715426b9d3adcf42a76c3af.
+2026-06-07T16:57:43.6098746Z Creating stderr named pipe at /podr/container/pipe/6710b5f0b8d0_registration-bot-app/stderr_6a0ffe83351e487583024e76c9544544.
+2026-06-07T16:57:43.6099851Z Successfully created stderr named pipe at: /podr/container/pipe/6710b5f0b8d0_registration-bot-app/stderr_6a0ffe83351e487583024e76c9544544.
+2026-06-07T16:57:43.6100367Z Opening named pipe /podr/container/pipe/6710b5f0b8d0_registration-bot-app/stderr_6a0ffe83351e487583024e76c9544544 for reading in non-blocking mode.
+2026-06-07T16:57:43.6100947Z Successfully opened named pipe: /podr/container/pipe/6710b5f0b8d0_registration-bot-app/stderr_6a0ffe83351e487583024e76c9544544.
+2026-06-07T16:57:43.6101450Z Successfully removed non-blocking flag from /podr/container/pipe/6710b5f0b8d0_registration-bot-app/stderr_6a0ffe83351e487583024e76c9544544.
+2026-06-07T16:57:43.6102255Z Creating container with image: appsvc/python:3.12_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/python:3.12_20260504.4.tuxprod
+2026-06-07T16:57:43.8813302Z Starting container: 6710b5f0b8d0_registration-bot-app.
+2026-06-07T16:57:43.9597343Z Starting watchers and probes.
+2026-06-07T16:57:43.9602588Z Starting metrics collection.
+2026-06-07T16:57:43.9695388Z Container is running.
+2026-06-07T16:57:43.9701360Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T16:57:44.0112544Z Container start method finished after 944 ms.
+2026-06-07T16:57:44.0113961Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T16:57:44.0114140Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-06-07T16:57:58.4900205Z Container has finished running with exit code: 127.
+2026-06-07T16:57:58.4902053Z Container is terminating. Grace period: 5 seconds.
+2026-06-07T16:57:58.4913567Z Stop and delete container. Retry count = 0
+2026-06-07T16:57:58.4914376Z Stopping container: 6710b5f0b8d0_registration-bot-app.
+2026-06-07T16:57:58.5818909Z Deleting container: 6710b5f0b8d0_registration-bot-app. Retry count = 0
+2026-06-07T16:57:58.7510261Z Container spec TerminationMessagePolicy  path 
+2026-06-07T16:57:58.7517273Z Container is terminated. Total time elapsed: 260 ms.
+2026-06-07T16:57:58.7699974Z Site container: registration-bot-app terminated during site startup.
+2026-06-07T16:57:58.7700974Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:55:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:57:58.7818099Z Site startup probe failed after 14.7700825 seconds.
+2026-06-07T16:57:58.9004653Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:57:58.9200841Z Failed to start site. Revert by stopping site.
+2026-06-07T16:57:58.9202273Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:57:58.9208426Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:57:59.2234666Z Site container: registration-bot-app_managedIdentity terminated during site startup.
+2026-06-07T16:57:59.2239642Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:57:59.2242698Z Site: registration-bot-app stopped.
+2026-06-07T16:57:59.2335444Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:57:59.5324768Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T16:57:59.7724297Z Site: registration-bot-app will be blocked for 1 minutes till 06/07/2026 16:58:59
+2026-06-07T16:57:59.7726140Z State: Blocked, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site: registration-bot-app will be blocked for 1 minutes till 06/07/2026 16:58:59, DetailsLevel: WARN
+2026-06-07T16:57:59.7940607Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:57:59 (UTC), DetailsLevel: WARN
+2026-06-07T16:58:00.2651426Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:57:59 (UTC), DetailsLevel: WARN
+2026-06-07T16:58:59.7767605Z Site: registration-bot-app is unblocked.
+2026-06-07T16:59:54.3604537Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:57:59 (UTC), DetailsLevel: WARN
+2026-06-07T16:59:56.0265678Z State: Starting, Action: StartingMsiContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:57:59 (UTC), DetailsLevel: WARN
+2026-06-07T17:00:03.7613594Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 16:57:59 (UTC), DetailsLevel: WARN
+2026-06-07T17:00:03.7614315Z Container start method called.
+2026-06-07T17:00:03.7614613Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/python:3.12_20260504.4.tuxprod for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:00:03.7615159Z Establishing network.
+2026-06-07T17:00:03.7615716Z Pulling image: appsvc/python:3.12_20260504.4.tuxprod.
+2026-06-07T17:00:04.1609332Z Container is starting.
+2026-06-07T17:00:04.1611906Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:00:04.1613131Z Establishing user namespace if not established already.
+2026-06-07T17:00:04.1613883Z Establishing network if not established already.
+2026-06-07T17:00:04.1614725Z Mounting volumes.
+2026-06-07T17:00:04.1616182Z Nested mountpoint 
+2026-06-07T17:00:04.2292846Z Nested mountpoint volatile/logs
+2026-06-07T17:00:04.2502078Z Nested mountpoint 
+2026-06-07T17:00:04.2510068Z Nested mountpoint 
+2026-06-07T17:00:04.2692159Z Nested mountpoint 
+2026-06-07T17:00:04.6995672Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for registration-bot-app. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-06-07T17:00:04.7094820Z Creating container.
+2026-06-07T17:00:04.7096387Z Creating pipes for streaming container io.
+2026-06-07T17:00:04.7103785Z Creating stdout named pipe at /podr/container/pipe/3b17465c27fd_registration-bot-app/stdout_c8447fdb67c64f778c92e5da2cb18d60.
+2026-06-07T17:00:04.7105788Z Successfully created stdout named pipe at: /podr/container/pipe/3b17465c27fd_registration-bot-app/stdout_c8447fdb67c64f778c92e5da2cb18d60.
+2026-06-07T17:00:04.7107018Z Opening named pipe /podr/container/pipe/3b17465c27fd_registration-bot-app/stdout_c8447fdb67c64f778c92e5da2cb18d60 for reading in non-blocking mode.
+2026-06-07T17:00:04.7107916Z Successfully opened named pipe: /podr/container/pipe/3b17465c27fd_registration-bot-app/stdout_c8447fdb67c64f778c92e5da2cb18d60.
+2026-06-07T17:00:04.7108612Z Successfully removed non-blocking flag from /podr/container/pipe/3b17465c27fd_registration-bot-app/stdout_c8447fdb67c64f778c92e5da2cb18d60.
+2026-06-07T17:00:04.7196749Z Creating stderr named pipe at /podr/container/pipe/3b17465c27fd_registration-bot-app/stderr_6197b2a30a124fe7814a672d729c4e28.
+2026-06-07T17:00:04.7199152Z Successfully created stderr named pipe at: /podr/container/pipe/3b17465c27fd_registration-bot-app/stderr_6197b2a30a124fe7814a672d729c4e28.
+2026-06-07T17:00:04.7200862Z Opening named pipe /podr/container/pipe/3b17465c27fd_registration-bot-app/stderr_6197b2a30a124fe7814a672d729c4e28 for reading in non-blocking mode.
+2026-06-07T17:00:04.7210208Z Successfully opened named pipe: /podr/container/pipe/3b17465c27fd_registration-bot-app/stderr_6197b2a30a124fe7814a672d729c4e28.
+2026-06-07T17:00:04.7212203Z Successfully removed non-blocking flag from /podr/container/pipe/3b17465c27fd_registration-bot-app/stderr_6197b2a30a124fe7814a672d729c4e28.
+2026-06-07T17:00:04.7394576Z Creating container with image: appsvc/python:3.12_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/python:3.12_20260504.4.tuxprod
+2026-06-07T17:00:05.5414912Z Starting container: 3b17465c27fd_registration-bot-app.
+2026-06-07T17:00:05.6088585Z Starting watchers and probes.
+2026-06-07T17:00:05.6101907Z Starting metrics collection.
+2026-06-07T17:00:05.6112862Z Container is running.
+2026-06-07T17:00:05.6113755Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:00:05.8103833Z Container start method finished after 2048 ms.
+2026-06-07T17:00:05.8104990Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:00:05.8188790Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-06-07T17:00:21.9541264Z Container has finished running with exit code: 127.
+2026-06-07T17:00:21.9544054Z Container is terminating. Grace period: 5 seconds.
+2026-06-07T17:00:21.9732567Z Stop and delete container. Retry count = 0
+2026-06-07T17:00:21.9733359Z Stopping container: 3b17465c27fd_registration-bot-app.
+2026-06-07T17:00:22.0318344Z Deleting container: 3b17465c27fd_registration-bot-app. Retry count = 0
+2026-06-07T17:00:22.1632749Z Container spec TerminationMessagePolicy  path 
+2026-06-07T17:00:22.1636184Z Container is terminated. Total time elapsed: 208 ms.
+2026-06-07T17:00:22.1638740Z Site container: registration-bot-app terminated during site startup.
+2026-06-07T17:00:22.1641625Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 16:57:58, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:00:22.1936170Z Site startup probe failed after 16.3743676 seconds.
+2026-06-07T17:00:22.3032417Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:00:22.3039538Z Failed to start site. Revert by stopping site.
+2026-06-07T17:00:22.3122200Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:00:22.3145850Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:00:22.6029771Z Site container: registration-bot-app_managedIdentity terminated during site startup.
+2026-06-07T17:00:22.6030450Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:00:22.6031272Z Site: registration-bot-app stopped.
+2026-06-07T17:03:50.4763115Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:00:23 (UTC), DetailsLevel: WARN
+2026-06-07T17:03:51.9481843Z State: Starting, Action: StartingMsiContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:00:23 (UTC), DetailsLevel: WARN
+2026-06-07T17:03:58.4810677Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:00:23 (UTC), DetailsLevel: WARN
+2026-06-07T17:03:58.4816511Z Container start method called.
+2026-06-07T17:03:58.4819103Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.5:13209/appsvc/python:3.12_20260504.4.tuxprod for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:03:58.4821763Z Establishing network.
+2026-06-07T17:03:58.5000038Z Pulling image: appsvc/python:3.12_20260504.4.tuxprod.
+2026-06-07T17:03:58.7047698Z Container is starting.
+2026-06-07T17:03:58.7118491Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:03:58.7119692Z Establishing user namespace if not established already.
+2026-06-07T17:03:58.7122405Z Establishing network if not established already.
+2026-06-07T17:03:58.7123451Z Mounting volumes.
+2026-06-07T17:03:58.7124751Z Nested mountpoint 
+2026-06-07T17:03:58.7533719Z Nested mountpoint volatile/logs
+2026-06-07T17:03:58.7720254Z Nested mountpoint 
+2026-06-07T17:03:58.7724258Z Nested mountpoint 
+2026-06-07T17:03:58.7919626Z Nested mountpoint 
+2026-06-07T17:03:59.0833235Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for registration-bot-app. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-06-07T17:03:59.0833981Z Creating container.
+2026-06-07T17:03:59.0834509Z Creating pipes for streaming container io.
+2026-06-07T17:03:59.0834988Z Creating stdout named pipe at /podr/container/pipe/b4895fc4ded2_registration-bot-app/stdout_8d502660e45f483095da37bc2fe92d6c.
+2026-06-07T17:03:59.0836163Z Successfully created stdout named pipe at: /podr/container/pipe/b4895fc4ded2_registration-bot-app/stdout_8d502660e45f483095da37bc2fe92d6c.
+2026-06-07T17:03:59.0836638Z Opening named pipe /podr/container/pipe/b4895fc4ded2_registration-bot-app/stdout_8d502660e45f483095da37bc2fe92d6c for reading in non-blocking mode.
+2026-06-07T17:03:59.0837223Z Successfully opened named pipe: /podr/container/pipe/b4895fc4ded2_registration-bot-app/stdout_8d502660e45f483095da37bc2fe92d6c.
+2026-06-07T17:03:59.0837732Z Successfully removed non-blocking flag from /podr/container/pipe/b4895fc4ded2_registration-bot-app/stdout_8d502660e45f483095da37bc2fe92d6c.
+2026-06-07T17:03:59.0935206Z Creating stderr named pipe at /podr/container/pipe/b4895fc4ded2_registration-bot-app/stderr_953198586cf74643b3c7d6d88190a2e0.
+2026-06-07T17:03:59.0936514Z Successfully created stderr named pipe at: /podr/container/pipe/b4895fc4ded2_registration-bot-app/stderr_953198586cf74643b3c7d6d88190a2e0.
+2026-06-07T17:03:59.0937030Z Opening named pipe /podr/container/pipe/b4895fc4ded2_registration-bot-app/stderr_953198586cf74643b3c7d6d88190a2e0 for reading in non-blocking mode.
+2026-06-07T17:03:59.0937623Z Successfully opened named pipe: /podr/container/pipe/b4895fc4ded2_registration-bot-app/stderr_953198586cf74643b3c7d6d88190a2e0.
+2026-06-07T17:03:59.0938134Z Successfully removed non-blocking flag from /podr/container/pipe/b4895fc4ded2_registration-bot-app/stderr_953198586cf74643b3c7d6d88190a2e0.
+2026-06-07T17:03:59.0938910Z Creating container with image: appsvc/python:3.12_20260504.4.tuxprod from registry: 10.1.0.5:13209 and fully qualified image name: 10.1.0.5:13209/appsvc/python:3.12_20260504.4.tuxprod
+2026-06-07T17:03:59.4367987Z Starting container: b4895fc4ded2_registration-bot-app.
+2026-06-07T17:03:59.4691941Z Starting watchers and probes.
+2026-06-07T17:03:59.4776677Z Starting metrics collection.
+2026-06-07T17:03:59.4779877Z Container is running.
+2026-06-07T17:03:59.4865928Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:03:59.5179264Z Container start method finished after 1036 ms.
+2026-06-07T17:03:59.5180997Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:03:59.5181319Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-06-07T17:04:15.0416983Z Container has finished running with exit code: 1.
+2026-06-07T17:04:15.0422343Z Container is terminating. Grace period: 5 seconds.
+2026-06-07T17:04:15.0496566Z Stop and delete container. Retry count = 0
+2026-06-07T17:04:15.0497251Z Stopping container: b4895fc4ded2_registration-bot-app.
+2026-06-07T17:04:15.1132070Z Deleting container: b4895fc4ded2_registration-bot-app. Retry count = 0
+2026-06-07T17:04:15.2614524Z Container spec TerminationMessagePolicy  path 
+2026-06-07T17:04:15.2621247Z Container is terminated. Total time elapsed: 219 ms.
+2026-06-07T17:04:15.2623794Z Site container: registration-bot-app terminated during site startup.
+2026-06-07T17:04:15.2697371Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:00:22, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:04:15.3413741Z Site startup probe failed after 15.8229006 seconds.
+2026-06-07T17:04:15.4623800Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:04:15.4935931Z Failed to start site. Revert by stopping site.
+2026-06-07T17:04:15.5011376Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:04:15.5013914Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:04:15.8127573Z Site container: registration-bot-app_managedIdentity terminated during site startup.
+2026-06-07T17:04:15.8129905Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:04:15.8131199Z Site: registration-bot-app stopped.
+2026-06-07T17:04:15.8448619Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:04:16.3080489Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:04:16.5683919Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:04:16 (UTC), DetailsLevel: ERR
+2026-06-07T17:04:16.9196847Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:04:16 (UTC), DetailsLevel: ERR
+2026-06-07T17:05:26.6784940Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:04:16 (UTC), DetailsLevel: ERR
+2026-06-07T17:05:28.1989529Z State: Starting, Action: StartingMsiContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:04:16 (UTC), DetailsLevel: ERR
+2026-06-07T17:05:37.0399285Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:04:16 (UTC), DetailsLevel: ERR
+2026-06-07T17:05:37.0399993Z Container start method called.
+2026-06-07T17:05:37.0400285Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.5:13209/appsvc/python:3.12_20260504.4.tuxprod for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:05:37.0400822Z Establishing network.
+2026-06-07T17:05:37.0401399Z Pulling image: appsvc/python:3.12_20260504.4.tuxprod.
+2026-06-07T17:05:37.2521986Z Container is starting.
+2026-06-07T17:05:37.2525111Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:05:37.2527444Z Establishing user namespace if not established already.
+2026-06-07T17:05:37.2530094Z Establishing network if not established already.
+2026-06-07T17:05:37.2532668Z Mounting volumes.
+2026-06-07T17:05:37.2533804Z Nested mountpoint 
+2026-06-07T17:05:37.2624086Z Nested mountpoint volatile/logs
+2026-06-07T17:05:37.2737959Z Nested mountpoint 
+2026-06-07T17:05:37.2824820Z Nested mountpoint 
+2026-06-07T17:05:37.2838637Z Nested mountpoint 
+2026-06-07T17:05:37.6328160Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for registration-bot-app. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-06-07T17:05:37.6331071Z Creating container.
+2026-06-07T17:05:37.6333924Z Creating pipes for streaming container io.
+2026-06-07T17:05:37.6336616Z Creating stdout named pipe at /podr/container/pipe/a5eed56fc246_registration-bot-app/stdout_99499d5fa8fc40c29cc8b2502fad9415.
+2026-06-07T17:05:37.6340052Z Successfully created stdout named pipe at: /podr/container/pipe/a5eed56fc246_registration-bot-app/stdout_99499d5fa8fc40c29cc8b2502fad9415.
+2026-06-07T17:05:37.6415599Z Opening named pipe /podr/container/pipe/a5eed56fc246_registration-bot-app/stdout_99499d5fa8fc40c29cc8b2502fad9415 for reading in non-blocking mode.
+2026-06-07T17:05:37.6418733Z Successfully opened named pipe: /podr/container/pipe/a5eed56fc246_registration-bot-app/stdout_99499d5fa8fc40c29cc8b2502fad9415.
+2026-06-07T17:05:37.6421844Z Successfully removed non-blocking flag from /podr/container/pipe/a5eed56fc246_registration-bot-app/stdout_99499d5fa8fc40c29cc8b2502fad9415.
+2026-06-07T17:05:37.6438902Z Creating stderr named pipe at /podr/container/pipe/a5eed56fc246_registration-bot-app/stderr_6bf2c15247d54402801e532e2a7c8649.
+2026-06-07T17:05:37.6517314Z Successfully created stderr named pipe at: /podr/container/pipe/a5eed56fc246_registration-bot-app/stderr_6bf2c15247d54402801e532e2a7c8649.
+2026-06-07T17:05:37.6518760Z Opening named pipe /podr/container/pipe/a5eed56fc246_registration-bot-app/stderr_6bf2c15247d54402801e532e2a7c8649 for reading in non-blocking mode.
+2026-06-07T17:05:37.6519792Z Successfully opened named pipe: /podr/container/pipe/a5eed56fc246_registration-bot-app/stderr_6bf2c15247d54402801e532e2a7c8649.
+2026-06-07T17:05:37.6520481Z Successfully removed non-blocking flag from /podr/container/pipe/a5eed56fc246_registration-bot-app/stderr_6bf2c15247d54402801e532e2a7c8649.
+2026-06-07T17:05:37.6523381Z Creating container with image: appsvc/python:3.12_20260504.4.tuxprod from registry: 10.1.0.5:13209 and fully qualified image name: 10.1.0.5:13209/appsvc/python:3.12_20260504.4.tuxprod
+2026-06-07T17:05:37.8982766Z Starting container: a5eed56fc246_registration-bot-app.
+2026-06-07T17:05:37.9526271Z Starting watchers and probes.
+2026-06-07T17:05:37.9742965Z Starting metrics collection.
+2026-06-07T17:05:37.9744901Z Container is running.
+2026-06-07T17:05:37.9745392Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:05:38.1118001Z Container start method finished after 1064 ms.
+2026-06-07T17:05:38.1125824Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:05:38.1129158Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-06-07T17:05:51.9638707Z Container has finished running with exit code: 1.
+2026-06-07T17:05:51.9648568Z Container is terminating. Grace period: 5 seconds.
+2026-06-07T17:05:51.9652661Z Stop and delete container. Retry count = 0
+2026-06-07T17:05:51.9653224Z Stopping container: a5eed56fc246_registration-bot-app.
+2026-06-07T17:05:52.0158275Z Deleting container: a5eed56fc246_registration-bot-app. Retry count = 0
+2026-06-07T17:05:52.1748054Z Container spec TerminationMessagePolicy  path 
+2026-06-07T17:05:52.1750638Z Container is terminated. Total time elapsed: 210 ms.
+2026-06-07T17:05:52.1751465Z Site container: registration-bot-app terminated during site startup.
+2026-06-07T17:05:52.1755087Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:04:15, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:05:52.2061792Z Site startup probe failed after 14.0924153 seconds.
+2026-06-07T17:05:52.3348600Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:05:52.3547660Z Failed to start site. Revert by stopping site.
+2026-06-07T17:05:52.3555746Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:05:52.3558278Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:05:52.6360119Z Site container: registration-bot-app_managedIdentity terminated during site startup.
+2026-06-07T17:05:52.6364177Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:05:52.6367008Z Site: registration-bot-app stopped.
+2026-06-07T17:05:52.6549126Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:05:52.9162364Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:05:53.0766678Z Site: registration-bot-app will be blocked for 1 minutes till 06/07/2026 17:06:53
+2026-06-07T17:05:53.0843019Z State: Blocked, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site: registration-bot-app will be blocked for 1 minutes till 06/07/2026 17:06:53, DetailsLevel: WARN
+2026-06-07T17:05:53.0845332Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:05:53 (UTC), DetailsLevel: WARN
+2026-06-07T17:05:53.6284444Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:05:53 (UTC), DetailsLevel: WARN
+2026-06-07T17:06:53.0733043Z Site: registration-bot-app is unblocked.
+2026-06-07T17:07:15.6619325Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:05:53 (UTC), DetailsLevel: WARN
+2026-06-07T17:07:17.4327384Z State: Starting, Action: StartingMsiContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:05:53 (UTC), DetailsLevel: WARN
+2026-06-07T17:07:24.0305351Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:05:53 (UTC), DetailsLevel: WARN
+2026-06-07T17:07:24.0479916Z Container start method called.
+2026-06-07T17:07:24.0480702Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.5:13209/appsvc/python:3.12_20260504.4.tuxprod for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:07:24.0481785Z Establishing network.
+2026-06-07T17:07:24.0482587Z Pulling image: appsvc/python:3.12_20260504.4.tuxprod.
+2026-06-07T17:07:24.2614945Z Container is starting.
+2026-06-07T17:07:24.2615713Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:07:24.2618467Z Establishing user namespace if not established already.
+2026-06-07T17:07:24.2619574Z Establishing network if not established already.
+2026-06-07T17:07:24.2620430Z Mounting volumes.
+2026-06-07T17:07:24.2621573Z Nested mountpoint 
+2026-06-07T17:07:24.2727261Z Nested mountpoint volatile/logs
+2026-06-07T17:07:24.2821310Z Nested mountpoint 
+2026-06-07T17:07:24.2921687Z Nested mountpoint 
+2026-06-07T17:07:24.3717016Z Nested mountpoint 
+2026-06-07T17:07:24.6129496Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for registration-bot-app. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-06-07T17:07:24.6132059Z Creating container.
+2026-06-07T17:07:24.6138508Z Creating pipes for streaming container io.
+2026-06-07T17:07:24.6212007Z Creating stdout named pipe at /podr/container/pipe/2f3b232eff3f_registration-bot-app/stdout_868d590ead894842a8c767e67f565cd5.
+2026-06-07T17:07:24.6215633Z Successfully created stdout named pipe at: /podr/container/pipe/2f3b232eff3f_registration-bot-app/stdout_868d590ead894842a8c767e67f565cd5.
+2026-06-07T17:07:24.6216700Z Opening named pipe /podr/container/pipe/2f3b232eff3f_registration-bot-app/stdout_868d590ead894842a8c767e67f565cd5 for reading in non-blocking mode.
+2026-06-07T17:07:24.6217614Z Successfully opened named pipe: /podr/container/pipe/2f3b232eff3f_registration-bot-app/stdout_868d590ead894842a8c767e67f565cd5.
+2026-06-07T17:07:24.6219936Z Successfully removed non-blocking flag from /podr/container/pipe/2f3b232eff3f_registration-bot-app/stdout_868d590ead894842a8c767e67f565cd5.
+2026-06-07T17:07:24.6221159Z Creating stderr named pipe at /podr/container/pipe/2f3b232eff3f_registration-bot-app/stderr_079456fc304b4b69aa6f623e4d0b2a9f.
+2026-06-07T17:07:24.6223031Z Successfully created stderr named pipe at: /podr/container/pipe/2f3b232eff3f_registration-bot-app/stderr_079456fc304b4b69aa6f623e4d0b2a9f.
+2026-06-07T17:07:24.6223738Z Opening named pipe /podr/container/pipe/2f3b232eff3f_registration-bot-app/stderr_079456fc304b4b69aa6f623e4d0b2a9f for reading in non-blocking mode.
+2026-06-07T17:07:24.6224565Z Successfully opened named pipe: /podr/container/pipe/2f3b232eff3f_registration-bot-app/stderr_079456fc304b4b69aa6f623e4d0b2a9f.
+2026-06-07T17:07:24.6225251Z Successfully removed non-blocking flag from /podr/container/pipe/2f3b232eff3f_registration-bot-app/stderr_079456fc304b4b69aa6f623e4d0b2a9f.
+2026-06-07T17:07:24.6226705Z Creating container with image: appsvc/python:3.12_20260504.4.tuxprod from registry: 10.1.0.5:13209 and fully qualified image name: 10.1.0.5:13209/appsvc/python:3.12_20260504.4.tuxprod
+2026-06-07T17:07:24.9485215Z Starting container: 2f3b232eff3f_registration-bot-app.
+2026-06-07T17:07:24.9945315Z Starting watchers and probes.
+2026-06-07T17:07:24.9961087Z Starting metrics collection.
+2026-06-07T17:07:24.9962651Z Container is running.
+2026-06-07T17:07:25.0038682Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:07:25.0553548Z Container start method finished after 1006 ms.
+2026-06-07T17:07:25.0555598Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:07:25.0555989Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-06-07T17:07:39.2851444Z Container has finished running with exit code: 1.
+2026-06-07T17:07:39.2853024Z Container is terminating. Grace period: 5 seconds.
+2026-06-07T17:07:39.2879779Z Stop and delete container. Retry count = 0
+2026-06-07T17:07:39.2882811Z Stopping container: 2f3b232eff3f_registration-bot-app.
+2026-06-07T17:07:39.3696926Z Deleting container: 2f3b232eff3f_registration-bot-app. Retry count = 0
+2026-06-07T17:07:39.6011298Z Container spec TerminationMessagePolicy  path 
+2026-06-07T17:07:39.6085167Z Container is terminated. Total time elapsed: 315 ms.
+2026-06-07T17:07:39.6086157Z Site container: registration-bot-app terminated during site startup.
+2026-06-07T17:07:39.6089512Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:05:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:07:39.6205318Z Site startup probe failed after 14.5636411 seconds.
+2026-06-07T17:07:39.7513446Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:07:39.7900864Z Failed to start site. Revert by stopping site.
+2026-06-07T17:07:39.7902180Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:07:39.7904147Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:07:40.0754193Z Site container: registration-bot-app_managedIdentity terminated during site startup.
+2026-06-07T17:07:40.0759544Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:07:40.0761082Z Site: registration-bot-app stopped.
+2026-06-07T17:10:07.1612432Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 06/07/2026 17:08:40, DetailsLevel: WARN
+2026-06-07T17:10:09.3214433Z State: Starting, Action: StartingMsiContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 06/07/2026 17:08:40, DetailsLevel: WARN
+2026-06-07T17:10:16.8000550Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 06/07/2026 17:08:40, DetailsLevel: WARN
+2026-06-07T17:10:16.8001611Z Container start method called.
+2026-06-07T17:10:16.8002215Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.5:13209/appsvc/python:3.12_20260504.4.tuxprod for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:10:16.8007254Z Establishing network.
+2026-06-07T17:10:16.8008299Z Pulling image: appsvc/python:3.12_20260504.4.tuxprod.
+2026-06-07T17:10:17.0034118Z Container is starting.
+2026-06-07T17:10:17.0036543Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:10:17.0037332Z Establishing user namespace if not established already.
+2026-06-07T17:10:17.0209290Z Establishing network if not established already.
+2026-06-07T17:10:17.0210739Z Mounting volumes.
+2026-06-07T17:10:17.0211863Z Nested mountpoint 
+2026-06-07T17:10:17.0408379Z Nested mountpoint volatile/logs
+2026-06-07T17:10:17.0517257Z Nested mountpoint 
+2026-06-07T17:10:17.0527298Z Nested mountpoint 
+2026-06-07T17:10:17.0832495Z Nested mountpoint 
+2026-06-07T17:10:17.4118456Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for registration-bot-app. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-06-07T17:10:17.4121227Z Creating container.
+2026-06-07T17:10:17.4121857Z Creating pipes for streaming container io.
+2026-06-07T17:10:17.4122420Z Creating stdout named pipe at /podr/container/pipe/341704fcede2_registration-bot-app/stdout_bbf0a59b96d949ad8ec049d0f96df2d5.
+2026-06-07T17:10:17.4123462Z Successfully created stdout named pipe at: /podr/container/pipe/341704fcede2_registration-bot-app/stdout_bbf0a59b96d949ad8ec049d0f96df2d5.
+2026-06-07T17:10:17.4123930Z Opening named pipe /podr/container/pipe/341704fcede2_registration-bot-app/stdout_bbf0a59b96d949ad8ec049d0f96df2d5 for reading in non-blocking mode.
+2026-06-07T17:10:17.4124528Z Successfully opened named pipe: /podr/container/pipe/341704fcede2_registration-bot-app/stdout_bbf0a59b96d949ad8ec049d0f96df2d5.
+2026-06-07T17:10:17.4125011Z Successfully removed non-blocking flag from /podr/container/pipe/341704fcede2_registration-bot-app/stdout_bbf0a59b96d949ad8ec049d0f96df2d5.
+2026-06-07T17:10:17.4305622Z Creating stderr named pipe at /podr/container/pipe/341704fcede2_registration-bot-app/stderr_ca02c928adf54100b8368bbf695cc5ac.
+2026-06-07T17:10:17.4307778Z Successfully created stderr named pipe at: /podr/container/pipe/341704fcede2_registration-bot-app/stderr_ca02c928adf54100b8368bbf695cc5ac.
+2026-06-07T17:10:17.4308345Z Opening named pipe /podr/container/pipe/341704fcede2_registration-bot-app/stderr_ca02c928adf54100b8368bbf695cc5ac for reading in non-blocking mode.
+2026-06-07T17:10:17.4309114Z Successfully opened named pipe: /podr/container/pipe/341704fcede2_registration-bot-app/stderr_ca02c928adf54100b8368bbf695cc5ac.
+2026-06-07T17:10:17.4309625Z Successfully removed non-blocking flag from /podr/container/pipe/341704fcede2_registration-bot-app/stderr_ca02c928adf54100b8368bbf695cc5ac.
+2026-06-07T17:10:17.4311040Z Creating container with image: appsvc/python:3.12_20260504.4.tuxprod from registry: 10.1.0.5:13209 and fully qualified image name: 10.1.0.5:13209/appsvc/python:3.12_20260504.4.tuxprod
+2026-06-07T17:10:17.8010934Z Starting container: 341704fcede2_registration-bot-app.
+2026-06-07T17:10:17.8630431Z Starting watchers and probes.
+2026-06-07T17:10:17.8707900Z Starting metrics collection.
+2026-06-07T17:10:17.8725196Z Container is running.
+2026-06-07T17:10:17.8725834Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:10:17.9119045Z Container start method finished after 1111 ms.
+2026-06-07T17:10:17.9127285Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:10:17.9131691Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-06-07T17:10:33.3938242Z Container has finished running with exit code: 1.
+2026-06-07T17:10:33.3939780Z Container is terminating. Grace period: 5 seconds.
+2026-06-07T17:10:33.3944371Z Stop and delete container. Retry count = 0
+2026-06-07T17:10:33.3945158Z Stopping container: 341704fcede2_registration-bot-app.
+2026-06-07T17:10:33.4636142Z Deleting container: 341704fcede2_registration-bot-app. Retry count = 0
+2026-06-07T17:10:33.6340124Z Container spec TerminationMessagePolicy  path 
+2026-06-07T17:10:33.6343703Z Container is terminated. Total time elapsed: 240 ms.
+2026-06-07T17:10:33.6348480Z Site container: registration-bot-app terminated during site startup.
+2026-06-07T17:10:33.6351790Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:07:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:10:33.7041190Z Site startup probe failed after 15.7724625 seconds.
+2026-06-07T17:10:33.8240085Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:10:33.8344141Z Failed to start site. Revert by stopping site.
+2026-06-07T17:10:33.8347774Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:10:33.8349677Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:10:34.1240794Z Site container: registration-bot-app_managedIdentity terminated during site startup.
+2026-06-07T17:10:34.1241740Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:10:34.1242936Z Site: registration-bot-app stopped.
+2026-06-07T17:10:34.1259953Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:10:34.4357992Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:10:34.6269150Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:10:34 (UTC), DetailsLevel: ERR
+2026-06-07T17:10:35.1602129Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:10:34 (UTC), DetailsLevel: ERR
+2026-06-07T17:11:03.4790418Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:10:34 (UTC), DetailsLevel: ERR
+2026-06-07T17:11:05.2433506Z State: Starting, Action: StartingMsiContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:10:34 (UTC), DetailsLevel: ERR
+2026-06-07T17:11:12.0436331Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:10:34 (UTC), DetailsLevel: ERR
+2026-06-07T17:11:12.0437089Z Container start method called.
+2026-06-07T17:11:12.0437374Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.5:13209/appsvc/python:3.12_20260504.4.tuxprod for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:11:12.0437897Z Establishing network.
+2026-06-07T17:11:12.0438480Z Pulling image: appsvc/python:3.12_20260504.4.tuxprod.
+2026-06-07T17:11:12.2045372Z Container is starting.
+2026-06-07T17:11:12.2045861Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:11:12.2046366Z Establishing user namespace if not established already.
+2026-06-07T17:11:12.2046855Z Establishing network if not established already.
+2026-06-07T17:11:12.2047466Z Mounting volumes.
+2026-06-07T17:11:12.2061992Z Nested mountpoint 
+2026-06-07T17:11:12.2468064Z Nested mountpoint volatile/logs
+2026-06-07T17:11:12.2653417Z Nested mountpoint 
+2026-06-07T17:11:12.2942885Z Nested mountpoint 
+2026-06-07T17:11:12.2953396Z Nested mountpoint 
+2026-06-07T17:11:12.5368912Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for registration-bot-app. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-06-07T17:11:12.5370060Z Creating container.
+2026-06-07T17:11:12.5372671Z Creating pipes for streaming container io.
+2026-06-07T17:11:12.5648235Z Creating stdout named pipe at /podr/container/pipe/5f42a40783cc_registration-bot-app/stdout_037c5aab56304ae0a820a31b98438606.
+2026-06-07T17:11:12.5651717Z Successfully created stdout named pipe at: /podr/container/pipe/5f42a40783cc_registration-bot-app/stdout_037c5aab56304ae0a820a31b98438606.
+2026-06-07T17:11:12.5654101Z Opening named pipe /podr/container/pipe/5f42a40783cc_registration-bot-app/stdout_037c5aab56304ae0a820a31b98438606 for reading in non-blocking mode.
+2026-06-07T17:11:12.5656671Z Successfully opened named pipe: /podr/container/pipe/5f42a40783cc_registration-bot-app/stdout_037c5aab56304ae0a820a31b98438606.
+2026-06-07T17:11:12.5658952Z Successfully removed non-blocking flag from /podr/container/pipe/5f42a40783cc_registration-bot-app/stdout_037c5aab56304ae0a820a31b98438606.
+2026-06-07T17:11:12.5670421Z Creating stderr named pipe at /podr/container/pipe/5f42a40783cc_registration-bot-app/stderr_70d15be456984554895525617dc0a1eb.
+2026-06-07T17:11:12.5942793Z Successfully created stderr named pipe at: /podr/container/pipe/5f42a40783cc_registration-bot-app/stderr_70d15be456984554895525617dc0a1eb.
+2026-06-07T17:11:12.5949966Z Opening named pipe /podr/container/pipe/5f42a40783cc_registration-bot-app/stderr_70d15be456984554895525617dc0a1eb for reading in non-blocking mode.
+2026-06-07T17:11:12.5972367Z Successfully opened named pipe: /podr/container/pipe/5f42a40783cc_registration-bot-app/stderr_70d15be456984554895525617dc0a1eb.
+2026-06-07T17:11:12.6068052Z Successfully removed non-blocking flag from /podr/container/pipe/5f42a40783cc_registration-bot-app/stderr_70d15be456984554895525617dc0a1eb.
+2026-06-07T17:11:12.6069163Z Creating container with image: appsvc/python:3.12_20260504.4.tuxprod from registry: 10.1.0.5:13209 and fully qualified image name: 10.1.0.5:13209/appsvc/python:3.12_20260504.4.tuxprod
+2026-06-07T17:11:12.9791936Z Starting container: 5f42a40783cc_registration-bot-app.
+2026-06-07T17:11:13.0354183Z Starting watchers and probes.
+2026-06-07T17:11:13.0366801Z Starting metrics collection.
+2026-06-07T17:11:13.0373821Z Container is running.
+2026-06-07T17:11:13.0374543Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:11:13.2463711Z Container start method finished after 1202 ms.
+2026-06-07T17:11:13.2465145Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:11:13.2465309Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-06-07T17:11:28.5073895Z Container has finished running with exit code: 1.
+2026-06-07T17:11:28.5078962Z Container is terminating. Grace period: 5 seconds.
+2026-06-07T17:11:28.5114798Z Stop and delete container. Retry count = 0
+2026-06-07T17:11:28.5115478Z Stopping container: 5f42a40783cc_registration-bot-app.
+2026-06-07T17:11:28.5742012Z Deleting container: 5f42a40783cc_registration-bot-app. Retry count = 0
+2026-06-07T17:11:28.8243896Z Container spec TerminationMessagePolicy  path 
+2026-06-07T17:11:28.8316307Z Container is terminated. Total time elapsed: 316 ms.
+2026-06-07T17:11:28.8317308Z Site container: registration-bot-app terminated during site startup.
+2026-06-07T17:11:28.8318092Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:10:33, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:11:28.8929217Z Site startup probe failed after 15.6379081 seconds.
+2026-06-07T17:11:29.0425358Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:11:29.0617582Z Failed to start site. Revert by stopping site.
+2026-06-07T17:11:29.0622531Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:11:29.0634704Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:11:29.3223361Z Site container: registration-bot-app_managedIdentity terminated during site startup.
+2026-06-07T17:11:29.3228622Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:11:29.3232445Z Site: registration-bot-app stopped.
+2026-06-07T17:11:29.3327838Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:11:29.6652125Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:11:29.9641508Z Site: registration-bot-app will be blocked for 1 minutes till 06/07/2026 17:12:29
+2026-06-07T17:11:29.9647255Z State: Blocked, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site: registration-bot-app will be blocked for 1 minutes till 06/07/2026 17:12:29, DetailsLevel: WARN
+2026-06-07T17:11:29.9723263Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:11:29 (UTC), DetailsLevel: WARN
+2026-06-07T17:11:30.3236236Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:11:29 (UTC), DetailsLevel: WARN
+2026-06-07T17:12:29.9638491Z Site: registration-bot-app is unblocked.
+2026-06-07T17:12:49.3824597Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:11:29 (UTC), DetailsLevel: WARN
+2026-06-07T17:12:51.4919099Z State: Starting, Action: StartingMsiContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:11:29 (UTC), DetailsLevel: WARN
+2026-06-07T17:13:02.0301784Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 06/07/2026 17:11:29 (UTC), DetailsLevel: WARN
+2026-06-07T17:13:02.0302505Z Container start method called.
+2026-06-07T17:13:02.0302794Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.5:13209/appsvc/python:3.12_20260504.4.tuxprod for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:13:02.0303323Z Establishing network.
+2026-06-07T17:13:02.0682732Z Pulling image: appsvc/python:3.12_20260504.4.tuxprod.
+2026-06-07T17:13:02.2982708Z Container is starting.
+2026-06-07T17:13:02.3132562Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for registration-bot-app., DetailsLevel: INFO
+2026-06-07T17:13:02.3141353Z Establishing user namespace if not established already.
+2026-06-07T17:13:02.3144342Z Establishing network if not established already.
+2026-06-07T17:13:02.3176422Z Mounting volumes.
+2026-06-07T17:13:02.3180546Z Nested mountpoint 
+2026-06-07T17:13:02.3372226Z Nested mountpoint volatile/logs
+2026-06-07T17:13:02.3673328Z Nested mountpoint 
+2026-06-07T17:13:02.3677445Z Nested mountpoint 
+2026-06-07T17:13:02.3681220Z Nested mountpoint 
+2026-06-07T17:13:02.7666682Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for registration-bot-app. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-06-07T17:13:02.7667976Z Creating container.
+2026-06-07T17:13:02.7668558Z Creating pipes for streaming container io.
+2026-06-07T17:13:02.7669123Z Creating stdout named pipe at /podr/container/pipe/a81c0ec6ca36_registration-bot-app/stdout_38159f393ef1400fb37fae3e97b8fbc0.
+2026-06-07T17:13:02.7670307Z Successfully created stdout named pipe at: /podr/container/pipe/a81c0ec6ca36_registration-bot-app/stdout_38159f393ef1400fb37fae3e97b8fbc0.
+2026-06-07T17:13:02.7670775Z Opening named pipe /podr/container/pipe/a81c0ec6ca36_registration-bot-app/stdout_38159f393ef1400fb37fae3e97b8fbc0 for reading in non-blocking mode.
+2026-06-07T17:13:02.7671408Z Successfully opened named pipe: /podr/container/pipe/a81c0ec6ca36_registration-bot-app/stdout_38159f393ef1400fb37fae3e97b8fbc0.
+2026-06-07T17:13:02.7671900Z Successfully removed non-blocking flag from /podr/container/pipe/a81c0ec6ca36_registration-bot-app/stdout_38159f393ef1400fb37fae3e97b8fbc0.
+2026-06-07T17:13:02.7672668Z Creating stderr named pipe at /podr/container/pipe/a81c0ec6ca36_registration-bot-app/stderr_267a319d6fad453cba698a5ddd935bb6.
+2026-06-07T17:13:02.7673400Z Successfully created stderr named pipe at: /podr/container/pipe/a81c0ec6ca36_registration-bot-app/stderr_267a319d6fad453cba698a5ddd935bb6.
+2026-06-07T17:13:02.7673838Z Opening named pipe /podr/container/pipe/a81c0ec6ca36_registration-bot-app/stderr_267a319d6fad453cba698a5ddd935bb6 for reading in non-blocking mode.
+2026-06-07T17:13:02.7674414Z Successfully opened named pipe: /podr/container/pipe/a81c0ec6ca36_registration-bot-app/stderr_267a319d6fad453cba698a5ddd935bb6.
+2026-06-07T17:13:02.7674879Z Successfully removed non-blocking flag from /podr/container/pipe/a81c0ec6ca36_registration-bot-app/stderr_267a319d6fad453cba698a5ddd935bb6.
+2026-06-07T17:13:02.7675523Z Creating container with image: appsvc/python:3.12_20260504.4.tuxprod from registry: 10.1.0.5:13209 and fully qualified image name: 10.1.0.5:13209/appsvc/python:3.12_20260504.4.tuxprod
+2026-06-07T17:13:03.9066707Z Starting container: a81c0ec6ca36_registration-bot-app.
+2026-06-07T17:13:04.0552703Z Starting watchers and probes.
+2026-06-07T17:13:04.0557296Z Starting metrics collection.
+2026-06-07T17:13:04.0558473Z Container is running.
+2026-06-07T17:13:04.0558987Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:13:04.1456126Z Container start method finished after 2115 ms.
+2026-06-07T17:13:04.1458389Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T17:13:04.1467172Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-06-07T17:13:26.4423304Z Container has finished running with exit code: 1.
+2026-06-07T17:13:26.4424082Z Container is terminating. Grace period: 5 seconds.
+2026-06-07T17:13:26.4518207Z Stop and delete container. Retry count = 0
+2026-06-07T17:13:26.4519409Z Stopping container: a81c0ec6ca36_registration-bot-app.
+2026-06-07T17:13:26.6114270Z Deleting container: a81c0ec6ca36_registration-bot-app. Retry count = 0
+2026-06-07T17:13:26.8801106Z Container spec TerminationMessagePolicy  path 
+2026-06-07T17:13:26.9020913Z Container is terminated. Total time elapsed: 459 ms.
+2026-06-07T17:13:26.9021781Z Site container: registration-bot-app terminated during site startup.
+2026-06-07T17:13:26.9242347Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:11:29, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:13:27.0010232Z Site startup probe failed after 22.8530841 seconds.
+2026-06-07T17:13:27.2812958Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:13:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:13:27.3422895Z Failed to start site. Revert by stopping site.
+2026-06-07T17:13:27.3499435Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:13:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:13:27.3512229Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:13:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:13:27.7597187Z Site container: registration-bot-app_managedIdentity terminated during site startup.
+2026-06-07T17:13:27.7597926Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 06/07/2026 17:13:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: registration-bot-app terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-06-07T17:13:27.7598844Z Site: registration-bot-app stopped.

@@ -1,0 +1,93 @@
+2026-06-07T16:51:36.3528818+00:00 ContainerStatus: State: Starting, Action: EstablishingSiteNetworks, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-06-07T16:51:38.6712232+00:00 ContainerStatus: State: Starting, Action: StartingMsiContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-06-07T16:51:47.5167497+00:00 ContainerStatus: State: Starting, Action: StartingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-06-07T16:51:47.5168248+00:00 ContainerStatus: Container start method called.
+2026-06-07T16:51:47.5168523+00:00 ContainerStatus: State: Starting, Action: PullingImage, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pulling image 10.1.0.4:13209/appsvc/python:3.12_20260504.4.tuxprod for registration-bot-app., DetailsLevel: INFO
+2026-06-07T16:51:47.5169085+00:00 ContainerStatus: Establishing network.
+2026-06-07T16:51:47.5169666+00:00 ContainerStatus: Pulling image: appsvc/python:3.12_20260504.4.tuxprod.
+2026-06-07T16:51:47.7606879+00:00 ContainerStatus: Image appsvc/python:3.12_20260504.4.tuxprod is pulled from registry 10.1.0.4:13209
+2026-06-07T16:51:47.7609816+00:00 ContainerStatus: Container is starting.
+2026-06-07T16:51:47.7612505+00:00 ContainerStatus: State: Starting, Action: MountingVolumes, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Mounting volumes for registration-bot-app., DetailsLevel: INFO
+2026-06-07T16:51:47.7613592+00:00 ContainerStatus: Establishing user namespace if not established already.
+2026-06-07T16:51:47.7618083+00:00 ContainerStatus: Establishing network if not established already.
+2026-06-07T16:51:47.7619112+00:00 ContainerStatus: Mounting volumes.
+2026-06-07T16:51:47.7694304+00:00 ContainerStatus: Nested mountpoint 
+2026-06-07T16:51:47.7903292+00:00 ContainerStatus: Nested mountpoint volatile/logs
+2026-06-07T16:51:47.8014212+00:00 ContainerStatus: Nested mountpoint 
+2026-06-07T16:51:47.8617340+00:00 ContainerStatus: Nested mountpoint 
+2026-06-07T16:51:47.8797529+00:00 ContainerStatus: Nested mountpoint 
+2026-06-07T16:51:48.1802569+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Finished pulling container image and mounting volumes for registration-bot-app. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-06-07T16:51:48.1806072+00:00 ContainerStatus: Creating container.
+2026-06-07T16:51:48.1810946+00:00 ContainerStatus: Creating pipes for streaming container io.
+2026-06-07T16:51:48.1811905+00:00 ContainerStatus: Creating stdout named pipe at /podr/container/pipe/6a55a2157296_registration-bot-app/stdout_b95546abe06e4f46923e2227568755f4.
+2026-06-07T16:51:48.1816558+00:00 ContainerStatus: Successfully created stdout named pipe at: /podr/container/pipe/6a55a2157296_registration-bot-app/stdout_b95546abe06e4f46923e2227568755f4.
+2026-06-07T16:51:48.1818907+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/6a55a2157296_registration-bot-app/stdout_b95546abe06e4f46923e2227568755f4 for reading in non-blocking mode.
+2026-06-07T16:51:48.1821777+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/6a55a2157296_registration-bot-app/stdout_b95546abe06e4f46923e2227568755f4.
+2026-06-07T16:51:48.1892249+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/6a55a2157296_registration-bot-app/stdout_b95546abe06e4f46923e2227568755f4.
+2026-06-07T16:51:48.1900688+00:00 ContainerStatus: Creating stderr named pipe at /podr/container/pipe/6a55a2157296_registration-bot-app/stderr_5ddee3b529324ef88a9f317baa4e0101.
+2026-06-07T16:51:48.1905781+00:00 ContainerStatus: Successfully created stderr named pipe at: /podr/container/pipe/6a55a2157296_registration-bot-app/stderr_5ddee3b529324ef88a9f317baa4e0101.
+2026-06-07T16:51:48.1907080+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/6a55a2157296_registration-bot-app/stderr_5ddee3b529324ef88a9f317baa4e0101 for reading in non-blocking mode.
+2026-06-07T16:51:48.1909719+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/6a55a2157296_registration-bot-app/stderr_5ddee3b529324ef88a9f317baa4e0101.
+2026-06-07T16:51:48.1911217+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/6a55a2157296_registration-bot-app/stderr_5ddee3b529324ef88a9f317baa4e0101.
+2026-06-07T16:51:48.1918183+00:00 ContainerStatus: Creating container with image: appsvc/python:3.12_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/python:3.12_20260504.4.tuxprod
+2026-06-07T16:51:48.8658008+00:00 ContainerStatus: Starting container: 6a55a2157296_registration-bot-app.
+2026-06-07T16:51:48.9164863+00:00 ContainerStatus: Starting watchers and probes.
+2026-06-07T16:51:48.9169244+00:00 ContainerStatus: Starting metrics collection.
+2026-06-07T16:51:48.9176187+00:00 ContainerStatus: Container is running.
+2026-06-07T16:51:48.9253111+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T16:51:49.0247734+00:00 ContainerStatus: Container start method finished after 1498 ms.
+2026-06-07T16:51:49.0249564+00:00 ContainerStatus: State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container registration-bot-app successfully created and is running., DetailsLevel: INFO
+2026-06-07T16:51:49.0249940+00:00 ContainerStatus: State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-06-07T16:51:49.2662943+00:00 ContainerStream:    _____                               
+2026-06-07T16:51:49.2664313+00:00 ContainerStream:   /  _  \ __________ _________   ____  
+2026-06-07T16:51:49.2664358+00:00 ContainerStream:  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-06-07T16:51:49.2664378+00:00 ContainerStream: /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-06-07T16:51:49.2664454+00:00 ContainerStream: \____|__  /_____ \____/ |__|    \___  >
+2026-06-07T16:51:49.2664484+00:00 ContainerStream:         \/      \/                  \/ 
+2026-06-07T16:51:49.2664504+00:00 ContainerStream: A P P   S E R V I C E   O N   L I N U X
+2026-06-07T16:51:49.2664522+00:00 ContainerStream: 
+2026-06-07T16:51:49.2664547+00:00 ContainerStream: Documentation     : https://aka.ms/webapp-linux
+2026-06-07T16:51:49.2664570+00:00 ContainerStream: Python quickstart : https://aka.ms/python-qs
+2026-06-07T16:51:49.2664591+00:00 ContainerStream: Python version    : 3.12.13
+2026-06-07T16:51:49.2664629+00:00 ContainerStream: Instance name     : lw1sdlwk0000D8
+2026-06-07T16:51:49.2664661+00:00 ContainerStream: Instance id       : f8c5d35a462fcd87923beccccb19f9d3c0e35bc47dd6274950bc1dd66bc38d1e
+2026-06-07T16:51:49.2664679+00:00 ContainerStream: 
+2026-06-07T16:51:49.2664697+00:00 ContainerStream: App port          : 8000
+2026-06-07T16:51:49.2664718+00:00 ContainerStream: Port selected by  : Default for this image
+2026-06-07T16:51:49.2664739+00:00 ContainerStream: (Learn more about the PORT appsetting https://aka.ms/webapp-python-settings)
+2026-06-07T16:51:49.2664778+00:00 ContainerStream: 
+2026-06-07T16:51:49.2664797+00:00 ContainerStream: Note: Any data outside '/home' is not persisted
+2026-06-07T16:51:49.2664814+00:00 ContainerStream: 
+2026-06-07T16:51:49.2664846+00:00 ContainerStream: ────────────────────────────────────────────────────────────────
+2026-06-07T16:51:49.2664871+00:00 ContainerStream:  Run 'apphelp' for available commands and aliases.
+2026-06-07T16:51:49.2664891+00:00 ContainerStream:  Run 'install-nettools' to install networking utilities.
+2026-06-07T16:51:49.2664939+00:00 ContainerStream: ────────────────────────────────────────────────────────────────
+2026-06-07T16:51:50.2769915+00:00 ContainerStream: Starting OpenBSD Secure Shell server: sshd.
+2026-06-07T16:51:50.2916474+00:00 ContainerStream: WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-06-07T16:51:50.3307169+00:00 ContainerStream: Updating certificates in /etc/ssl/certs...
+2026-06-07T16:52:01.7023888+00:00 ContainerStream: rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-06-07T16:52:01.7404569+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-06-07T16:52:01.8221966+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-06-07T16:52:01.9814746+00:00 ContainerStream: 4 added, 0 removed; done.
+2026-06-07T16:52:01.9897696+00:00 ContainerStream: Running hooks in /etc/ca-certificates/update.d...
+2026-06-07T16:52:02.0705143+00:00 ContainerStream: done.
+2026-06-07T16:52:02.1904036+00:00 ContainerStream: CA certificates copied and updated successfully.
+2026-06-07T16:52:02.7222256+00:00 ContainerStream: App Command Line not configured, will attempt auto-detect
+2026-06-07T16:52:03.1795103+00:00 ContainerStream: Starting periodic command scheduler: cron.
+2026-06-07T16:52:03.1807355+00:00 ContainerStream: Launching oryx with: create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -virtualEnvName antenv -defaultApp /opt/defaultsite
+2026-06-07T16:52:03.5896226+00:00 ContainerStream: Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-06-07T16:52:03.5896712+00:00 ContainerStream: Could not find operation ID in manifest. Generating an operation id...
+2026-06-07T16:52:03.5896739+00:00 ContainerStream: Build Operation ID: 809ac0c0-75ba-426f-82d9-9effb2b5663f
+2026-06-07T16:52:03.9807060+00:00 ContainerStream: Oryx Version: 0.2.20260504.2, Commit: a776ec9f2fd225b305599e35443ecb3533bcdb26, ReleaseTagName: 20260504.2
+2026-06-07T16:52:04.0136184+00:00 ContainerStream: No framework detected; using default app from /opt/defaultsite
+2026-06-07T16:52:04.0142039+00:00 ContainerStream: Generating `gunicorn` command for 'application:app'
+2026-06-07T16:52:04.0915542+00:00 ContainerStream: Writing output script to '/opt/startup/startup.sh'
+2026-06-07T16:52:04.1414496+00:00 ContainerStream: WARNING: Could not find virtual environment directory /home/site/wwwroot/antenv.
+2026-06-07T16:52:04.1419912+00:00 ContainerStream: WARNING: Could not find package directory /home/site/wwwroot/__oryx_packages__.
+2026-06-07T16:52:06.6915610+00:00 ContainerStream: [2026-06-07 16:52:06 +0000] [1871] [INFO] Starting gunicorn 24.1.1
+2026-06-07T16:52:06.7812988+00:00 ContainerStream: [2026-06-07 16:52:06 +0000] [1871] [INFO] Listening at: http://0.0.0.0:8000 (1871)
+2026-06-07T16:52:06.7821892+00:00 ContainerStream: [2026-06-07 16:52:06 +0000] [1871] [INFO] Using worker: sync
+2026-06-07T16:52:06.8109622+00:00 ContainerStream: [2026-06-07 16:52:06 +0000] [1875] [INFO] Booting worker with pid: 1875
+2026-06-07T16:52:08.1321198+00:00 ContainerStatus: Site startup probe succeeded after 19.1063413 seconds.
+2026-06-07T16:52:08.1524815+00:00 ContainerStream: 169.254.130.1 - - [07/Jun/2026:16:52:08 +0000] "GET /robots933456.txt HTTP/1.1" 404 207 "-" "HealthCheck/1.0"
+2026-06-07T16:52:08.3426811+00:00 ContainerStatus: State: Starting, Action: WarmUpProbeSucceeded, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site startup probe succeeded after 19.1063413 seconds., DetailsLevel: INFO
