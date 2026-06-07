@@ -25,6 +25,10 @@ API_PORT="${API_PORT:-8000}"
 DASHBOARD_PORT="${PORT:-${WEBSITES_PORT:-8501}}"
 APP_MODE="${APP_MODE:-both}"
 
+if [[ "${APP_MODE}" != "api" && "${API_PORT}" == "${DASHBOARD_PORT}" ]]; then
+	API_PORT="8001"
+fi
+
 export API_URL="http://127.0.0.1:${API_PORT}"
 
 case "${APP_MODE}" in
