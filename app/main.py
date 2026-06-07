@@ -15,48 +15,57 @@ class Message(BaseModel):
 class ChatRequest(BaseModel):
     messages: List[Message]
 
+def parse_date(date_str: str) -> date:
+    # Versuche verschiedene Formate
+    for fmt in ("%Y-%m-%d", "%d.%m.%Y", "%d/%m/%Y", "%m/%d/%Y"):
+        try:
+            return date.fromisoformat(date_str) if fmt == "%Y-%m-%d" else date(*reversed([int(x) for x in date_str.split("." if "." in date_str else "/")]))
+        except Exception:
+            continue
+    raise ValueError(f"Unbekanntes Datumsformat: {date_str}")
+
 @app.get("/")
 def root():
     return {"status": "running"}
 
-
-@app.get("/health")
-def health():
-    return {"status": "ok"}
-
 @app.post("/chat")
 def chat(request: ChatRequest):
     messages = [m.dict() for m in request.messages]
+    result = chat_with_agent(messages)
 
-    try:
-        result = chat_with_agent(messages)
+    if result.get("status") == "complete":
+        data = result["data"]
+        session = get_session()
+        try:
+            birthdate_str = data.get("birthdate", "2000-01-01")
+            if "." in birthdate_str:
+                parts = birthdate_str.split(".")
+                birthdate = date(int(parts[2]), int(parts[1]), int(parts[0]))
+            else:
+                birthdate = date.fromisoformat(birthdate_str)
 
-        if result.get("status") == "complete":
-            data = result.get("data", {})
-            session = get_session()
-            try:
-                user = User(
-                    first_name=data.get("first_name"),
-                    last_name=data.get("last_name"),
-                    birthdate=date.fromisoformat(data.get("birthdate", "2000-01-01")),
-                    email=data.get("email"),
-                    phone=data.get("phone"),
-                    street=data.get("street"),
-                    house_number=data.get("house_number"),
-                    zip_code=data.get("zip_code"),
-                    city=data.get("city"),
-                    country=data.get("country")
-                )
-                session.add(user)
-                session.commit()
-            finally:
-                session.close()
+            user = User(
+                first_name=data.get("first_name"),
+                last_name=data.get("last_name"),
+                birthdate=birthdate,
+                email=data.get("email"),
+                phone=data.get("phone"),
+                street=data.get("street"),
+                house_number=data.get("house_number"),
+                zip_code=data.get("zip_code"),
+                city=data.get("city"),
+                country=data.get("country")
+            )
+            session.add(user)
+            session.commit()
+            session.close()
+            return {"status": "complete", "message": result.get("message", "Registrierung erfolgreich!")}
+        except Exception as e:
+            session.rollback()
+            session.close()
+            return {"status": "error", "message": str(e)}
 
-            return {"status": "complete", "message": "Registrierung erfolgreich gespeichert!"}
-
-        return result
-    except Exception as exc:
-        return {"status": "error", "message": f"Chat fehlgeschlagen: {exc}"}
+    return result
 
 @app.get("/users")
 def get_users():
