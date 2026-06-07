@@ -19,32 +19,44 @@ class ChatRequest(BaseModel):
 def root():
     return {"status": "running"}
 
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 @app.post("/chat")
 def chat(request: ChatRequest):
     messages = [m.dict() for m in request.messages]
-    result = chat_with_agent(messages)
 
-    if result.get("status") == "complete":
-        data = result["data"]
-        session = get_session()
-        user = User(
-            first_name=data.get("first_name"),
-            last_name=data.get("last_name"),
-            birthdate=date.fromisoformat(data.get("birthdate", "2000-01-01")),
-            email=data.get("email"),
-            phone=data.get("phone"),
-            street=data.get("street"),
-            house_number=data.get("house_number"),
-            zip_code=data.get("zip_code"),
-            city=data.get("city"),
-            country=data.get("country")
-        )
-        session.add(user)
-        session.commit()
-        session.close()
-        return {"status": "complete", "message": "Registrierung erfolgreich gespeichert!"}
+    try:
+        result = chat_with_agent(messages)
 
-    return result
+        if result.get("status") == "complete":
+            data = result.get("data", {})
+            session = get_session()
+            try:
+                user = User(
+                    first_name=data.get("first_name"),
+                    last_name=data.get("last_name"),
+                    birthdate=date.fromisoformat(data.get("birthdate", "2000-01-01")),
+                    email=data.get("email"),
+                    phone=data.get("phone"),
+                    street=data.get("street"),
+                    house_number=data.get("house_number"),
+                    zip_code=data.get("zip_code"),
+                    city=data.get("city"),
+                    country=data.get("country")
+                )
+                session.add(user)
+                session.commit()
+            finally:
+                session.close()
+
+            return {"status": "complete", "message": "Registrierung erfolgreich gespeichert!"}
+
+        return result
+    except Exception as exc:
+        return {"status": "error", "message": f"Chat fehlgeschlagen: {exc}"}
 
 @app.get("/users")
 def get_users():
