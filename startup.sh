@@ -25,7 +25,7 @@ API_PORT="${API_PORT:-8000}"
 DASHBOARD_PORT="${PORT:-${WEBSITES_PORT:-8501}}"
 APP_MODE="${APP_MODE:-both}"
 
-export API_URL="${API_URL:-http://127.0.0.1:${API_PORT}}"
+export API_URL="http://127.0.0.1:${API_PORT}"
 
 case "${APP_MODE}" in
 	api)
