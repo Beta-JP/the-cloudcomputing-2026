@@ -14,6 +14,14 @@ def get_client():
     return _client
 
 def get_secret(secret_name: str) -> str:
+    # Lokal: Umgebungsvariable nutzen
+    env_map = {
+        "SqlConnectionString": "AZURE_SQL_CONNECTIONSTRING",
+        "AiKey": "AZURE_AI_KEY"
+    }
+    env_val = os.getenv(env_map.get(secret_name, ""))
+    if env_val:
+        return env_val
     return get_client().get_secret(secret_name).value
 
 def get_connection_string() -> str:

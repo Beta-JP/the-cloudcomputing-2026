@@ -1,7 +1,9 @@
+import os
+
 import streamlit as st
 import requests
 
-API_URL = "http://localhost:8000"
+API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
 
 st.set_page_config(page_title="Registration Bot Dashboard", layout="wide")
 st.title("📋 Registrierungen")
@@ -10,7 +12,7 @@ if st.button("🔄 Aktualisieren"):
     st.rerun()
 
 try:
-    response = requests.get(f"{API_URL}/users")
+    response = requests.get(f"{API_URL}/users", timeout=10)
     users = response.json()
     if users:
         st.dataframe(users, use_container_width=True)
