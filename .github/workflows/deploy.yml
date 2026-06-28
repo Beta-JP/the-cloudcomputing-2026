@@ -5,25 +5,26 @@ on:
     branches: [main]
 
 jobs:
-  deploy:
+  deploy-api:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Deploy API to Azure Web App
+        uses: azure/webapps-deploy@v3
         with:
-          python-version: '3.12'
+          app-name: registration-bot-app
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_API }}
+          package: .
 
-      - name: Login to Azure
-        uses: azure/login@v1
+  deploy-dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy Dashboard to Azure Web App
+        uses: azure/webapps-deploy@v3
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Deploy via Azure CLI
-        run: |
-          az webapp deploy \
-            --resource-group rg-registration-bot \
-            --name registration-bot-app \
-            --src-path . \
-            --type zip
+          app-name: registration-dashboard
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DASHBOARD }}
+          package: .
