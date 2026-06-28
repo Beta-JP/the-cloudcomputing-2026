@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
 from app.agent import chat_with_agent
@@ -77,6 +77,26 @@ def chat(request: ChatRequest):
 
     return result
 
+@app.delete("/users/{user_id}")
+def delete_user(user_id: int):
+    session = get_session()
+    try:
+        user = session.query(User).filter(User.id == user_id).first()
+        if user is None:
+            raise HTTPException(status_code=404, detail="Eintrag nicht gefunden")
+
+        session.delete(user)
+        session.commit()
+        return {"status": "deleted", "message": "Eintrag gelöscht"}
+    except HTTPException:
+        session.rollback()
+        raise
+    except Exception as e:
+        session.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        session.close()
+
 @app.get("/users")
 def get_users():
     session = get_session()
@@ -87,8 +107,14 @@ def get_users():
             "id": u.id,
             "first_name": u.first_name,
             "last_name": u.last_name,
+            "birthdate": str(u.birthdate) if u.birthdate else None,
             "email": u.email,
+            "phone": u.phone,
+            "street": u.street,
+            "house_number": u.house_number,
+            "zip_code": u.zip_code,
             "city": u.city,
+            "country": u.country,
             "created_at": str(u.created_at)
         }
         for u in users

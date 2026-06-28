@@ -78,15 +78,67 @@ def send_message(messages: list) -> dict:
     except Exception as e:
         return {"status": "error", "message": f"Unbekannter Fehler: {e}"}
 
-st.set_page_config(page_title="Registration Bot Dashboard", layout="wide")
+def delete_user(user_id: int) -> dict:
+    try:
+        response = requests.delete(f"{API_URL}/users/{user_id}", timeout=10)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.Timeout:
+        return {"status": "error", "message": "Zeitüberschreitung beim Löschen."}
+    except requests.exceptions.ConnectionError:
+        return {"status": "error", "message": "Verbindung zur API nicht möglich."}
+    except requests.exceptions.HTTPError as e:
+        detail = ""
+        try:
+            detail = response.json().get("detail", "")
+        except Exception:
+            detail = e.response.text if e.response is not None else ""
+        return {"status": "error", "message": f"API-Fehler: {e.response.status_code}{f' - {detail}' if detail else ''}"}
+    except Exception as e:
+        return {"status": "error", "message": f"Unbekannter Fehler: {e}"}
 
-if "chat_messages" not in st.session_state:
+def reset_registration():
     st.session_state.chat_messages = [
         {
             "role": "assistant",
             "content": "Hallo, ich helfe dir bei der Registrierung. Nenne mir bitte deine Daten Schritt für Schritt.",
         }
     ]
+    st.session_state.registration_finished = False
+    st.session_state.clear_manual_input = True
+
+def submit_user_input(user_input: str):
+    st.session_state.chat_messages.append({"role": "user", "content": user_input})
+
+    result = send_message(st.session_state.chat_messages)
+
+    if result.get("status") == "error":
+        st.session_state.chat_messages.append({
+            "role": "assistant",
+            "content": f"⚠️ {result.get('message')}"
+        })
+    elif result.get("status") == "complete":
+        st.session_state.chat_messages.append({
+            "role": "assistant",
+            "content": result.get("message", "✅ Registrierung erfolgreich gespeichert!")
+        })
+        st.session_state.registration_finished = True
+    else:
+        assistant_text = result.get("message", "Danke, ich prüfe die Angaben weiter.")
+        st.session_state.chat_messages.append({"role": "assistant", "content": assistant_text})
+
+    st.session_state.clear_manual_input = True
+
+st.set_page_config(page_title="Registration Bot Dashboard", layout="wide")
+
+if "chat_messages" not in st.session_state:
+    reset_registration()
+if "registration_finished" not in st.session_state:
+    st.session_state.registration_finished = False
+if "manual_input" not in st.session_state:
+    st.session_state.manual_input = ""
+if "clear_manual_input" not in st.session_state:
+    st.session_state.clear_manual_input = False
 
 tab_chat, tab_users = st.tabs(["💬 Chat", "📋 Registrierungen"])
 
@@ -98,41 +150,39 @@ with tab_chat:
         with st.chat_message(message["role"]):
             st.write(message["content"])
 
-    col1, col2 = st.columns([1, 8])
-    with col1:
-        if st.button("Aufnehmen"):
+    if st.session_state.registration_finished:
+        st.success("Die Registrierung ist abgeschlossen.")
+        if st.button("Neue Registrierung starten"):
+            reset_registration()
+            st.rerun()
+    else:
+        if st.session_state.clear_manual_input:
+            st.session_state.manual_input = ""
+            st.session_state.clear_manual_input = False
+
+        col_input, col_send, col_mic = st.columns([10, 2, 1])
+        with col_input:
+            st.text_input(
+                "Schreibe deine Antwort ...",
+                key="manual_input",
+                label_visibility="collapsed",
+                placeholder="Schreibe oder diktiere deine Antwort ...",
+            )
+        with col_send:
+            send_clicked = st.button("Senden", use_container_width=True)
+        with col_mic:
+            mic_clicked = st.button("🎤", help="Spracheingabe", use_container_width=True)
+
+        if send_clicked and st.session_state.manual_input.strip():
+            submit_user_input(st.session_state.manual_input.strip())
+            st.rerun()
+
+        if mic_clicked:
             with st.spinner("Höre zu..."):
                 recognized = speech_to_text()
-                if recognized:
-                    st.session_state["speech_input"] = recognized
-                    st.rerun()
-
-    with col2:
-        user_input = st.chat_input("Schreibe oder spreche deine Antwort ...")
-
-    if "speech_input" in st.session_state and st.session_state["speech_input"]:
-        user_input = st.session_state.pop("speech_input")
-
-    if user_input:
-        st.session_state.chat_messages.append({"role": "user", "content": user_input})
-
-        result = send_message(st.session_state.chat_messages)
-
-        if result.get("status") == "error":
-            st.session_state.chat_messages.append({
-                "role": "assistant",
-                "content": f"⚠️ {result.get('message')}"
-            })
-        elif result.get("status") == "complete":
-            st.session_state.chat_messages.append({
-                "role": "assistant",
-                "content": result.get("message", "✅ Registrierung erfolgreich gespeichert!")
-            })
-        else:
-            assistant_text = result.get("message", "Danke, ich prüfe die Angaben weiter.")
-            st.session_state.chat_messages.append({"role": "assistant", "content": assistant_text})
-
-        st.rerun()
+            if recognized:
+                submit_user_input(recognized)
+                st.rerun()
 
 with tab_users:
     st.title("📋 Registrierungen")
@@ -145,7 +195,31 @@ with tab_users:
         response.raise_for_status()
         users = response.json()
         if users:
-            st.dataframe(users, use_container_width=True)
+            for user in users:
+                with st.container(border=True):
+                    st.subheader(f"{user.get('first_name', '-') } {user.get('last_name', '-') }")
+                    st.write(
+                        {
+                            "Vorname": user.get("first_name", "-"),
+                            "Nachname": user.get("last_name", "-"),
+                            "Geburtsdatum": user.get("birthdate", "-"),
+                            "E-Mail": user.get("email", "-"),
+                            "Telefon": user.get("phone", "-"),
+                            "Straße": user.get("street", "-"),
+                            "Hausnummer": user.get("house_number", "-"),
+                            "PLZ": user.get("zip_code", "-"),
+                            "Ort": user.get("city", "-"),
+                            "Land": user.get("country", "-"),
+                            "Erstellt am": user.get("created_at", "-"),
+                        }
+                    )
+                    if st.button("Löschen", key=f"delete_user_{user['id']}", use_container_width=False):
+                        delete_result = delete_user(user["id"])
+                        if delete_result.get("status") == "deleted":
+                            st.success("Eintrag gelöscht.")
+                            st.rerun()
+                        else:
+                            st.error(delete_result.get("message", "Löschen fehlgeschlagen."))
         else:
             st.info("Noch keine Registrierungen vorhanden.")
     except Exception as e:

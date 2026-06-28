@@ -29,11 +29,16 @@ if [[ "${APP_MODE}" != "api" && "${API_PORT}" == "${DASHBOARD_PORT}" ]]; then
 	API_PORT="8001"
 fi
 
-export API_URL="http://127.0.0.1:${API_PORT}"
+if [[ "${APP_MODE}" != "frontend" ]]; then
+	export API_URL="${API_URL:-http://127.0.0.1:${API_PORT}}"
+fi
 
 case "${APP_MODE}" in
 	api)
 		exec "${PYTHON_CMD}" -m uvicorn app.main:app --host 0.0.0.0 --port "${API_PORT}"
+		;;
+	frontend)
+		exec "${PYTHON_CMD}" -m streamlit run dashboard.py --server.address 0.0.0.0 --server.port "${DASHBOARD_PORT}" --server.headless true
 		;;
 	dashboard|both)
 		"${PYTHON_CMD}" -m uvicorn app.main:app --host 0.0.0.0 --port "${API_PORT}" &
@@ -42,7 +47,7 @@ case "${APP_MODE}" in
 		exec "${PYTHON_CMD}" -m streamlit run dashboard.py --server.address 0.0.0.0 --server.port "${DASHBOARD_PORT}" --server.headless true
 		;;
 	*)
-		echo "Unknown APP_MODE: ${APP_MODE}. Use 'api' or 'dashboard'." >&2
+		echo "Unknown APP_MODE: ${APP_MODE}. Use 'api', 'frontend' or 'dashboard'." >&2
 		exit 1
 		;;
 esac

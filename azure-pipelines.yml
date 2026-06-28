@@ -1,0 +1,121 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  azureServiceConnection: 'YOUR-AZURE-SERVICE-CONNECTION'
+  resourceGroupName: 'rg-registration-bot'
+  location: 'swedencentral'
+  namePrefix: 'registration-bot'
+  appServicePlanName: 'asp-registration-bot'
+  apiWebAppName: 'registration-bot-api'
+  frontendWebAppName: 'registration-bot-frontend'
+  keyVaultName: 'kv-reg-bot-masch'
+  sqlServerName: 'sql-reg-bot-masch'
+  sqlDatabaseName: 'registrationdb'
+  aiServicesName: 'ais-reg-bot-masch'
+  speechName: 'speech-registration-bot'
+  aiProjectEndpoint: 'https://replace-with-your-foundry-project-endpoint'
+  openAiDeploymentName: 'gpt-4o'
+  # Provide sqlAdminPassword as a secret pipeline variable or via a linked variable group.
+
+stages:
+  - stage: DeployInfrastructure
+    displayName: Deploy infrastructure
+    jobs:
+      - job: DeployBicep
+        displayName: Deploy Bicep template
+        steps:
+          - task: AzureCLI@2
+            displayName: What-if Bicep deployment
+            inputs:
+              azureSubscription: '$(azureServiceConnection)'
+              scriptType: bash
+              scriptLocation: inlineScript
+              inlineScript: |
+                set -euo pipefail
+                az deployment group what-if \
+                  --resource-group "$(resourceGroupName)" \
+                  --template-file "infra/main.bicep" \
+                  --parameters \
+                    location="$(location)" \
+                    namePrefix="$(namePrefix)" \
+                    appServicePlanName="$(appServicePlanName)" \
+                    apiWebAppName="$(apiWebAppName)" \
+                    frontendWebAppName="$(frontendWebAppName)" \
+                    keyVaultName="$(keyVaultName)" \
+                    sqlServerName="$(sqlServerName)" \
+                    sqlDatabaseName="$(sqlDatabaseName)" \
+                    aiServicesName="$(aiServicesName)" \
+                    speechName="$(speechName)" \
+                    aiProjectEndpoint="$(aiProjectEndpoint)" \
+                    openAiDeploymentName="$(openAiDeploymentName)" \
+                    sqlAdminPassword="$$SQL_ADMIN_PASSWORD"
+            env:
+              SQL_ADMIN_PASSWORD: $(sqlAdminPassword)
+
+          - task: AzureCLI@2
+            displayName: Deploy Bicep template
+            inputs:
+              azureSubscription: '$(azureServiceConnection)'
+              scriptType: bash
+              scriptLocation: inlineScript
+              inlineScript: |
+                set -euo pipefail
+                az deployment group create \
+                  --resource-group "$(resourceGroupName)" \
+                  --template-file "infra/main.bicep" \
+                  --parameters \
+                    location="$(location)" \
+                    namePrefix="$(namePrefix)" \
+                    appServicePlanName="$(appServicePlanName)" \
+                    apiWebAppName="$(apiWebAppName)" \
+                    frontendWebAppName="$(frontendWebAppName)" \
+                    keyVaultName="$(keyVaultName)" \
+                    sqlServerName="$(sqlServerName)" \
+                    sqlDatabaseName="$(sqlDatabaseName)" \
+                    aiServicesName="$(aiServicesName)" \
+                    speechName="$(speechName)" \
+                    aiProjectEndpoint="$(aiProjectEndpoint)" \
+                    openAiDeploymentName="$(openAiDeploymentName)" \
+                    sqlAdminPassword="$$SQL_ADMIN_PASSWORD"
+            env:
+              SQL_ADMIN_PASSWORD: $(sqlAdminPassword)
+
+  - stage: DeployApplication
+    displayName: Deploy application
+    dependsOn: DeployInfrastructure
+    jobs:
+      - job: PackageAndDeploy
+        displayName: Package code and deploy to App Service
+        steps:
+          - task: ArchiveFiles@2
+            displayName: Create deployment package
+            inputs:
+              rootFolderOrFile: '$(Build.SourcesDirectory)'
+              includeRootFolder: false
+              archiveType: zip
+              archiveFile: '$(Build.ArtifactStagingDirectory)/registration-bot.zip'
+              replaceExistingArchive: true
+
+          - task: AzureWebApp@1
+            displayName: Deploy zip package to API Web App
+            inputs:
+              azureSubscription: '$(azureServiceConnection)'
+              appType: webAppLinux
+              appName: '$(apiWebAppName)'
+              package: '$(Build.ArtifactStagingDirectory)/registration-bot.zip'
+              deploymentMethod: zipDeploy
+
+          - task: AzureWebApp@1
+            displayName: Deploy zip package to Frontend Web App
+            inputs:
+              azureSubscription: '$(azureServiceConnection)'
+              appType: webAppLinux
+              appName: '$(frontendWebAppName)'
+              package: '$(Build.ArtifactStagingDirectory)/registration-bot.zip'
+              deploymentMethod: zipDeploy

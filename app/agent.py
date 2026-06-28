@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from azure.ai.projects import AIProjectClient
 from azure.identity import ManagedIdentityCredential, DefaultAzureCredential
 
@@ -39,6 +40,51 @@ def get_credential():
     if os.getenv("WEBSITE_SITE_NAME"):
         return ManagedIdentityCredential()
     return DefaultAzureCredential()
+
+def _clean_value(value: str) -> str:
+    return re.sub(r"\s+", " ", value).strip(" ,.;")
+
+def extract_data_from_messages(messages: list) -> dict:
+    combined = "\n".join(msg.get("content", "") for msg in messages if msg.get("content"))
+    data = {}
+
+    patterns = {
+        "email": r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b",
+        "phone": r"(?:\+?\d[\d\s()/.-]{6,}\d)",
+        "birthdate": r"\b(?:\d{1,2}[./]\d{1,2}[./]\d{2,4}|\d{4}-\d{2}-\d{2})\b",
+        "zip_code": r"\b\d{4,5}\b",
+    }
+
+    for field, pattern in patterns.items():
+        match = re.search(pattern, combined)
+        if match:
+            data[field] = _clean_value(match.group(0))
+
+    city_match = re.search(r"\b(?:in|aus|aus\s+dem|aus\s+der|wohne\s+in)\s+([A-ZÄÖÜ][A-Za-zÄÖÜäöüß\- ]+?)(?:[\.,;]|$)", combined)
+    if city_match:
+        data["city"] = _clean_value(city_match.group(1))
+
+    country_match = re.search(r"\b(?:Deutschland|Österreich|Schweiz|Germany|Austria|Switzerland)\b", combined, flags=re.IGNORECASE)
+    if country_match:
+        data["country"] = _clean_value(country_match.group(0))
+
+    street_match = re.search(r"\b([A-ZÄÖÜ][A-Za-zÄÖÜäöüß\- ]+\s+\d+[A-Za-z]?)\b", combined)
+    if street_match:
+        data["street"] = _clean_value(street_match.group(1))
+        house_parts = re.search(r"\b([A-ZÄÖÜ][A-Za-zÄÖÜäöüß\- ]+)\s+(\d+[A-Za-z]?)\b", street_match.group(1))
+        if house_parts:
+            data["street"] = _clean_value(house_parts.group(1))
+            data["house_number"] = _clean_value(house_parts.group(2))
+
+    first_name_match = re.search(r"\b(?:ich heiße|mein name ist|vorname ist)\s+([A-ZÄÖÜ][A-Za-zÄÖÜäöüß\-]+)", combined, flags=re.IGNORECASE)
+    if first_name_match:
+        data["first_name"] = _clean_value(first_name_match.group(1))
+
+    last_name_match = re.search(r"\b(?:nachname ist|ich heiße|mein name ist)\s+[A-ZÄÖÜ][A-Za-zÄÖÜäöüß\-]+\s+([A-ZÄÖÜ][A-Za-zÄÖÜäöüß\-]+)", combined, flags=re.IGNORECASE)
+    if last_name_match:
+        data["last_name"] = _clean_value(last_name_match.group(1))
+
+    return data
 
 def format_summary(data: dict) -> str:
     lines = ["Ich habe folgende Angaben aufgenommen:"]
@@ -88,6 +134,18 @@ def chat_with_agent(messages: list) -> dict:
     last = response.choices[0].message.content or ""
 
     try:
-        return normalize_result(parse_json_response(last))
+        result = parse_json_response(last)
+        extracted_data = extract_data_from_messages(messages)
+        model_data = result.get("data") or {}
+        merged_data = {**extracted_data, **model_data}
+        result["data"] = merged_data
+
+        if result.get("status") in {"incomplete", "pending_confirmation", "complete"}:
+            missing_fields = [field for field, _ in FIELD_ORDER if not merged_data.get(field)]
+            if missing_fields and result.get("status") == "complete":
+                result["status"] = "pending_confirmation"
+
+        return normalize_result(result)
     except json.JSONDecodeError:
-        return {"status": "incomplete", "message": last, "collected": {}}
+        extracted_data = extract_data_from_messages(messages)
+        return normalize_result({"status": "pending_confirmation" if extracted_data else "incomplete", "message": last, "data": extracted_data})
