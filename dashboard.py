@@ -2,8 +2,7 @@ import os
 import re
 import requests
 import streamlit as st
-import azure.cognitiveservices.speech as speechsdk
-from streamlit_mic_recorder import mic_recorder
+import streamlit.components.v1 as components
 import tempfile
 
 API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
@@ -17,11 +16,9 @@ MONTH_MAP = {
 }
 
 def preprocess_speech(text: str) -> str:
-    # @ ersetzen
     text = re.sub(r'\bat\b', '@', text, flags=re.IGNORECASE)
     text = re.sub(r'\bätt\b', '@', text, flags=re.IGNORECASE)
 
-    # Datum: "17. April 2003" → "17.04.2003"
     def replace_month(match):
         day = match.group(1).zfill(2)
         month = MONTH_MAP.get(match.group(2).lower(), match.group(2))
@@ -30,59 +27,13 @@ def preprocess_speech(text: str) -> str:
 
     text = re.sub(
         r'(\d{1,2})\.\s*(januar|februar|märz|april|mai|juni|juli|august|september|oktober|november|dezember)\s*(\d{4})',
-        replace_month,
-        text,
-        flags=re.IGNORECASE
+        replace_month, text, flags=re.IGNORECASE
     )
-
-    # "der 17. April 2003" → "17.04.2003"
     text = re.sub(
         r'der\s+(\d{1,2})\.\s*(januar|februar|märz|april|mai|juni|juli|august|september|oktober|november|dezember)\s*(\d{4})',
-        replace_month,
-        text,
-        flags=re.IGNORECASE
+        replace_month, text, flags=re.IGNORECASE
     )
-
     return text
-
-def speech_to_text(audio_bytes) -> str:
-    try:
-        speech_config = speechsdk.SpeechConfig(
-            subscription=SPEECH_KEY,
-            region=SPEECH_REGION
-        )
-        speech_config.speech_recognition_language = "de-DE"
-
-        # Audiodatei temporär speichern
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_file:
-            tmp_file.write(audio_bytes)
-            tmp_filename = tmp_file.name
-
-        audio_config = speechsdk.audio.AudioConfig(filename=tmp_filename)
-
-        recognizer = speechsdk.SpeechRecognizer(
-            speech_config=speech_config,
-            audio_config=audio_config
-        )
-
-        result = recognizer.recognize_once()
-
-        os.remove(tmp_filename)
-
-        if result.reason == speechsdk.ResultReason.RecognizedSpeech:
-            return preprocess_speech(result.text)
-
-        elif result.reason == speechsdk.ResultReason.NoMatch:
-            st.warning("Keine Sprache erkannt.")
-
-        elif result.reason == speechsdk.ResultReason.Canceled:
-            details = result.cancellation_details
-            st.error(f"Abgebrochen: {details.reason}")
-
-    except Exception as e:
-        st.error(f"Speech-Fehler: {e}")
-
-    return ""
 
 def send_message(messages: list) -> dict:
     try:
@@ -163,6 +114,8 @@ if "manual_input" not in st.session_state:
     st.session_state.manual_input = ""
 if "clear_manual_input" not in st.session_state:
     st.session_state.clear_manual_input = False
+if "speech_result" not in st.session_state:
+    st.session_state.speech_result = ""
 
 tab_chat, tab_users = st.tabs(["💬 Chat", "📋 Registrierungen"])
 
@@ -184,7 +137,62 @@ with tab_chat:
             st.session_state.manual_input = ""
             st.session_state.clear_manual_input = False
 
-        col_input, col_send, col_mic = st.columns([10, 2, 1])
+        # Browser-natives Speech via Web Speech API
+        components.html("""
+            <div style="margin: 4px 0;">
+                <button id="micBtn" onclick="startSpeech()" style="
+                    background: transparent;
+                    border: 1px solid #ccc;
+                    border-radius: 6px;
+                    padding: 6px 12px;
+                    cursor: pointer;
+                    font-size: 18px;">
+                    🎤
+                </button>
+                <span id="status" style="margin-left: 8px; font-size: 12px; color: gray;"></span>
+            </div>
+            <script>
+            function startSpeech() {
+                if (!('SpeechRecognition' in window) && !('webkitSpeechRecognition' in window)) {
+                    document.getElementById('status').innerText = 'Browser unterstützt keine Spracheingabe.';
+                    return;
+                }
+                const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.lang = 'de-DE';
+                recognition.interimResults = false;
+                recognition.maxAlternatives = 1;
+
+                document.getElementById('status').innerText = '🔴 Aufnahme läuft...';
+                document.getElementById('micBtn').disabled = true;
+                recognition.start();
+
+                recognition.onresult = function(event) {
+                    let text = event.results[0][0].transcript;
+                    document.getElementById('status').innerText = '✅ ' + text;
+
+                    const inputs = window.parent.document.querySelectorAll('input[type="text"]');
+                    if (inputs.length > 0) {
+                        const input = inputs[inputs.length - 1];
+                        const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                        setter.call(input, text);
+                        input.dispatchEvent(new Event('input', { bubbles: true }));
+                    }
+                    document.getElementById('micBtn').disabled = false;
+                };
+
+                recognition.onerror = function(event) {
+                    document.getElementById('status').innerText = '❌ ' + event.error;
+                    document.getElementById('micBtn').disabled = false;
+                };
+
+                recognition.onend = function() {
+                    document.getElementById('micBtn').disabled = false;
+                };
+            }
+            </script>
+        """, height=60)
+
+        col_input, col_send = st.columns([10, 2])
         with col_input:
             st.text_input(
                 "Schreibe deine Antwort ...",
@@ -194,22 +202,10 @@ with tab_chat:
             )
         with col_send:
             send_clicked = st.button("Senden", use_container_width=True)
-        with col_mic:
-            audio = mic_recorder(
-                start_prompt="🎤",
-                stop_prompt="⏹️",
-                just_once=True,
-                use_container_width=True,
-                key="recorder",
-    )
 
-        if audio:
-            with st.spinner("Erkenne Sprache..."):
-              recognized = speech_to_text(audio["bytes"])
-
-            if recognized:
-                submit_user_input(recognized)
-                st.rerun()
+        if send_clicked and st.session_state.manual_input:
+            submit_user_input(st.session_state.manual_input)
+            st.rerun()
 
 with tab_users:
     st.title("📋 Registrierungen")
@@ -224,7 +220,7 @@ with tab_users:
         if users:
             for user in users:
                 with st.container(border=True):
-                    st.subheader(f"{user.get('first_name', '-') } {user.get('last_name', '-') }")
+                    st.subheader(f"{user.get('first_name', '-')} {user.get('last_name', '-')}")
                     st.write(
                         {
                             "Vorname": user.get("first_name", "-"),
