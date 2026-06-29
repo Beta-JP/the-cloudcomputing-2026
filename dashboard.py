@@ -3,6 +3,8 @@ import re
 import requests
 import streamlit as st
 import azure.cognitiveservices.speech as speechsdk
+from streamlit_mic_recorder import mic_recorder
+import tempfile
 
 API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
 SPEECH_KEY = os.getenv("AZURE_SPEECH_KEY", "")
@@ -43,21 +45,43 @@ def preprocess_speech(text: str) -> str:
 
     return text
 
-def speech_to_text() -> str:
+def speech_to_text(audio_bytes) -> str:
     try:
-        speech_config = speechsdk.SpeechConfig(subscription=SPEECH_KEY, region=SPEECH_REGION)
+        speech_config = speechsdk.SpeechConfig(
+            subscription=SPEECH_KEY,
+            region=SPEECH_REGION
+        )
         speech_config.speech_recognition_language = "de-DE"
-        audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
-        recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
+
+        # Audiodatei temporär speichern
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_file:
+            tmp_file.write(audio_bytes)
+            tmp_filename = tmp_file.name
+
+        audio_config = speechsdk.audio.AudioConfig(filename=tmp_filename)
+
+        recognizer = speechsdk.SpeechRecognizer(
+            speech_config=speech_config,
+            audio_config=audio_config
+        )
+
         result = recognizer.recognize_once()
+
+        os.remove(tmp_filename)
+
         if result.reason == speechsdk.ResultReason.RecognizedSpeech:
             return preprocess_speech(result.text)
+
         elif result.reason == speechsdk.ResultReason.NoMatch:
-            st.warning("Keine Sprache erkannt. Bitte nochmal versuchen.")
+            st.warning("Keine Sprache erkannt.")
+
         elif result.reason == speechsdk.ResultReason.Canceled:
-            st.error("Spracherkennung abgebrochen.")
+            details = result.cancellation_details
+            st.error(f"Abgebrochen: {details.reason}")
+
     except Exception as e:
         st.error(f"Speech-Fehler: {e}")
+
     return ""
 
 def send_message(messages: list) -> dict:
@@ -171,15 +195,18 @@ with tab_chat:
         with col_send:
             send_clicked = st.button("Senden", use_container_width=True)
         with col_mic:
-            mic_clicked = st.button("🎤", help="Spracheingabe", use_container_width=True)
+            audio = mic_recorder(
+                start_prompt="🎤",
+                stop_prompt="⏹️",
+                just_once=True,
+                use_container_width=True,
+                key="recorder",
+    )
 
-        if send_clicked and st.session_state.manual_input.strip():
-            submit_user_input(st.session_state.manual_input.strip())
-            st.rerun()
+        if audio:
+            with st.spinner("Erkenne Sprache..."):
+              recognized = speech_to_text(audio["bytes"])
 
-        if mic_clicked:
-            with st.spinner("Höre zu..."):
-                recognized = speech_to_text()
             if recognized:
                 submit_user_input(recognized)
                 st.rerun()
