@@ -27,25 +27,26 @@ def chat_with_agent(messages: list) -> dict:
         credential=get_credential(),
     )
 
-    thread = client.agents.create_thread()
+    with client:
+        thread = client.agents.threads.create()
 
-    for msg in messages:
-        role = msg.get("role")
-        content = msg.get("content", "")
-        if role == "user" and content:
-            client.agents.create_message(
-                thread_id=thread.id,
-                role="user",
-                content=content
-            )
+        for msg in messages:
+            role = msg.get("role")
+            content = msg.get("content", "")
+            if role == "user" and content:
+                client.agents.messages.create(
+                    thread_id=thread.id,
+                    role="user",
+                    content=content
+                )
 
-    run = client.agents.create_and_process_run(
-        thread_id=thread.id,
-        agent_id=AGENT_ID
-    )
+        run = client.agents.runs.create_and_process(
+            thread_id=thread.id,
+            agent_id=AGENT_ID
+        )
 
-    response_messages = client.agents.list_messages(thread_id=thread.id)
-    last = response_messages.data[0].content[0].text.value
+        response_messages = client.agents.messages.list(thread_id=thread.id)
+        last = response_messages.data[0].content[0].text.value
 
     try:
         return parse_json_response(last)
